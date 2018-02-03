@@ -67,6 +67,8 @@
     <Compile Include="BLL\Model\ViewModels\PostViewModel.cs" />
     <Compile Include="BLL\Model\ViewModels\TaskModel.cs" />
     <Compile Include="BLL\Services\ClientService.cs" />
+    <Compile Include="BLL\Services\IdentityService.cs" />
+    <Compile Include="BLL\Services\PostService.cs" />
     <Compile Include="BLL\Services\TaskService.cs" />
     <Compile Include="BLL\Sesion.cs" />
     <Compile Include="BLL\Utils.cs" />
