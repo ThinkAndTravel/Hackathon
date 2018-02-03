@@ -42,10 +42,31 @@
     <Compile Include="BLL\ConectPage.cs" />
     <Compile Include="BLL\Dekanat.cs" />
     <Compile Include="BLL\Geolocator.cs" />
+    <Compile Include="BLL\Helpers\ServiceException.cs" />
+    <Compile Include="BLL\Helpers\Settings.cs" />
+    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Comment.cs" />
+    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Condition.cs" />
+    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Confirm.cs" />
+    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Location.cs" />
+    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Notice.cs" />
+    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Plan.cs" />
+    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Question.cs" />
+    <Compile Include="BLL\Models\CollectionModels\MainCollectionModels\MainPost.cs" />
+    <Compile Include="BLL\Models\CollectionModels\MainCollectionModels\MainTask.cs" />
+    <Compile Include="BLL\Models\CollectionModels\MainCollectionModels\MainTour.cs" />
+    <Compile Include="BLL\Models\CollectionModels\MainCollectionModels\MainUser.cs" />
+    <Compile Include="BLL\Models\CollectionModels\Photo.cs" />
+    <Compile Include="BLL\Models\CollectionModels\Post.cs" />
+    <Compile Include="BLL\Models\CollectionModels\Task.cs" />
+    <Compile Include="BLL\Models\CollectionModels\Tour.cs" />
+    <Compile Include="BLL\Models\CollectionModels\User.cs" />
+    <Compile Include="BLL\Models\Image.cs" />
+    <Compile Include="BLL\Models\LoginModel.cs" />
+    <Compile Include="BLL\Models\RegistryModel.cs" />
     <Compile Include="BLL\Services\ClientService.cs" />
+    <Compile Include="BLL\Services\TaskService.cs" />
     <Compile Include="BLL\Sesion.cs" />
     <Compile Include="BLL\Utils.cs" />
-    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -164,6 +185,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BLL\Models\ViewModels\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
