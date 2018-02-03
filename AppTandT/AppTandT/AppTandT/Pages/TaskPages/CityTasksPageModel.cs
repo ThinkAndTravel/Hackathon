@@ -22,6 +22,11 @@ namespace AppTandT.Pages.TaskPages
         {
             var list = new List<CityItem>();
 
+            var city0 = new CityItem()
+            {
+                Name = "Unit City",
+                LogoUrl = "http://api2.withmyfriends.org/media/events/2017/08/1502381279-UNIT_LOGO.jpg"
+            };
             var city1 = new CityItem()
             {
                 Name = "Київ",
@@ -57,6 +62,7 @@ namespace AppTandT.Pages.TaskPages
                 Name = "New York",
                 LogoUrl = "https://ksr-ugc.imgix.net/assets/015/948/830/9d0bc635f892278375dbead26628c49e_original.png?crop=faces&w=1552&h=873&fit=crop&v=1491489203&auto=format&q=92&s=b731a0c0aafde1872f33c2563c6c4997"
             };
+            list.Add(city0);
             list.Add(city1);
             list.Add(city2);
             list.Add(city3);
@@ -66,16 +72,16 @@ namespace AppTandT.Pages.TaskPages
             list.Add(city7);
 
             CityItems = new ObservableCollection<CityItem>(list);
-            CitySelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>((arg) =>
+            CitySelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>(async(arg) => 
             {
-                Reload();
+                await Reload();
                 SelectedCity = null;
             });
 
             TaskSelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>((arg) =>
             {
-                var pageModel = new AboutTaskPageModel(SelectedTask.ID);
-                var page = this.GetPageFromCache<AboutTaskPageModel>(pageModel);
+                var pageModel = new TaskExecutionPageModel(SelectedTask.ID);
+                var page = this.GetPageFromCache<TaskExecutionPageModel>(pageModel);
                 var masterDetailPage =
                     this.GetPageFromCache<MainMasterDetailPageModel>();
 
@@ -114,32 +120,74 @@ namespace AppTandT.Pages.TaskPages
                         About = cur.About,
                     });
             }
+            //list.Add(new TaskItem()
+            //{
+            //    Title = "Будинок з химерами",
+            //    LogoUrl = "http://bm.img.com.ua/berlin/storage/news/orig/7/e4/b0c8b53f913b6bec26e48ac0d3a28e47.jpg",
+            //    About = "Cпоруда з прикрасами міфологічних та мисливських сюжетів, є головною архітектурною спорудою раннього декоративного стилю модерн міста Києва, столиці України. Свою назву отримала завдяки скульптурним прикрасам, тематика яких — тваринний наземний та підводний світи, атрибути полювання, казкові істоти"
+            //}
+            //    );
+            //var task1 = new TaskItem()
+            //{
+            //    Title = "Майдан Незалежності",
+            //    LogoUrl = "https://st2.depositphotos.com/1536490/11132/v/950/depositphotos_111323836-stock-illustration-maidan-nezalezhnosti-kiev.jpg",
+            //};
             list.Add(new TaskItem()
             {
-                Title = "Будинок з химерами",
-                LogoUrl = "http://bm.img.com.ua/berlin/storage/news/orig/7/e4/b0c8b53f913b6bec26e48ac0d3a28e47.jpg",
-                About = "Cпоруда з прикрасами міфологічних та мисливських сюжетів, є головною архітектурною спорудою раннього декоративного стилю модерн міста Києва, столиці України. Свою назву отримала завдяки скульптурним прикрасам, тематика яких — тваринний наземний та підводний світи, атрибути полювання, казкові істоти"
+                Title = "",
+                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
+                About = "Виберіть місто "
             }
-                );
-            var task1 = new TaskItem()
+            );
+            list.Add(new TaskItem()
             {
-                Title = "Майдан Незалежності",
-                LogoUrl = "https://st2.depositphotos.com/1536490/11132/v/950/depositphotos_111323836-stock-illustration-maidan-nezalezhnosti-kiev.jpg",
-            };
-
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-            list.Add(task1);
-
+                Title = "",
+                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
+                About = "Виберіть місто "
+            }
+            );
+            list.Add(new TaskItem()
+            {
+                Title = "",
+                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
+                About = "Виберіть місто "
+            }
+            );
+            list.Add(new TaskItem()
+            {
+                Title = "",
+                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
+                About = "Виберіть місто "
+            }
+            );
+            list.Add(new TaskItem()
+            {
+                Title = "",
+                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
+                About = "Виберіть місто "
+            }
+            );
+            list.Add(new TaskItem()
+            {
+                Title = "",
+                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
+                About = "Виберіть місто "
+            }
+            );
+            list.Add(new TaskItem()
+            {
+                Title = "",
+                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
+                About = "Виберіть місто "
+            }
+            );
+            list.Add(new TaskItem()
+            {
+                Title = "",
+                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
+                About = "Виберіть місто "
+            }
+            );
             // Тут повинний бути список завдань для вибраного міста
 
             TaskItems = new ObservableCollection<TaskItem>(list);

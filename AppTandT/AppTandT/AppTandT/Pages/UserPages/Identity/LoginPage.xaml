@@ -62,16 +62,7 @@
                             BackgroundColor = "#808080"
                             TextColor = "White"
                         />
-                <Button Grid.Row="5" 
-                            Command="{Binding PhotoButtonCommand}"
-                            Text="Go to photo page"
-                            FontSize ="16"
-                            FontFamily ="Verdana"
-                            HeightRequest ="50"
-                            VerticalOptions = "Start"
-                            BackgroundColor = "#808080"
-                            TextColor = "White"   
-                        />
+                
             </Grid>
         </Grid>
     </ContentPage.Content>
