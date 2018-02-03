@@ -1,4 +1,6 @@
-﻿using AppTandT.BLL.Help;
+﻿using Acr.UserDialogs;
+using AppTandT.BLL;
+using AppTandT.BLL.Help;
 using AppTandT.Pages.TaskPages;
 using AppTandT.Pages.UserPages;
 using System;
@@ -213,7 +215,7 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            TandT.XBLL.Sesion.CloseSession();
+                            Sesion.CloseSession();
                             var page = this.GetPageFromCache<LoginPageModel>();
                             await this.PushPageAsync(page);
                             this.ClearPageCache();
