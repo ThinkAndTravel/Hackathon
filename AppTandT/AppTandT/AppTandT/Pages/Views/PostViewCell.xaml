@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTandT.Pages.Views.PostViewCell"
+          xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"
+		  
+		  xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		  xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+          xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout 
+            Grid.Row="0"
+            Orientation="Horizontal" Margin="10,0,10,0" Spacing="5">
+            <ffimageloading:CachedImage 
+                    x:Name="AvatarView"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+				    DownsampleToViewSize="true"
+					Aspect="AspectFit"
+                    HeightRequest="60"
+                    WidthRequest="60">
+                <ffimageloading:CachedImage.Transformations>
+                    <fftransformations:CircleTransformation/>
+                </ffimageloading:CachedImage.Transformations>
+            </ffimageloading:CachedImage>
+            <Label x:Name="LoginView"
+                   VerticalOptions="Center"
+                   TextColor="Black" />
+        </StackLayout>
+
+        <ffimageloading:CachedImage x:Name="MainImage"
+                                    Grid.Row="1"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    DownsampleToViewSize="true"
+                                    Aspect="AspectFill"
+                                    HeightRequest="300">
+        </ffimageloading:CachedImage>
+
+        <StackLayout x:Name="SvgIcons"
+                     Margin="10,0,10,0"
+                     Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand"
+                     Grid.Row="2">
+
+            <!--<ffimageloadingsvg:SvgCachedImage Aspect="AspectFill" HeightRequest="40"
+            WidthRequest="40" Source="resource://TandT_App.Icons.svg.save.svg"
+            DownsampleToViewSize="true" HorizontalOptions="Center"
+            VerticalOptions="Start" x:Name="ProfileImage">
+                <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCanvasViewTapped" />
+                </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+            </ffimageloadingsvg:SvgCachedImage>-->
+
+        </StackLayout>
+
+        <Label x:Name="AboutView" Grid.Row="3" TextColor="Black" Margin="10,0,10,0"/>
+    </Grid>
+
+</ViewCell>
