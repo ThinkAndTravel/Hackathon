@@ -44,6 +44,7 @@
     <Compile Include="BLL\Geolocator.cs" />
     <Compile Include="BLL\Help\ServiceException.cs" />
     <Compile Include="BLL\Help\Settings.cs" />
+    <Compile Include="BLL\ListPlan.cs" />
     <Compile Include="BLL\Model\CollectionModels\HelpCollectionModels\Comment.cs" />
     <Compile Include="BLL\Model\CollectionModels\HelpCollectionModels\Condition.cs" />
     <Compile Include="BLL\Model\CollectionModels\HelpCollectionModels\Confirm.cs" />
@@ -82,6 +83,13 @@
       <DependentUpon>MenuPageMaster.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Menu\MenuPageMasterModel.cs" />
+    <Compile Include="Pages\PlanPages\AddPlanPage.xaml.cs">
+      <DependentUpon>AddPlanPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlanPages\PlansPage.xaml.cs">
+      <DependentUpon>PlansPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlanPages\PlansPageModel.cs" />
     <Compile Include="Pages\TaskPages\TaskExecutionPage.xaml.cs">
       <DependentUpon>TaskExecutionPage.xaml</DependentUpon>
     </Compile>
@@ -104,6 +112,9 @@
     </Compile>
     <Compile Include="Pages\Views\CityViewCell.xaml.cs">
       <DependentUpon>CityViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\PlanViewCell.xaml.cs">
+      <DependentUpon>PlanViewCell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Views\PostViewCell.xaml.cs">
       <DependentUpon>PostViewCell.xaml</DependentUpon>
@@ -271,6 +282,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\TaskPages\TaskExecutionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\PlanPages\AddPlanPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\PlanPages\PlansPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Views\PlanViewCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

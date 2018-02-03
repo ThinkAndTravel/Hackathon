@@ -12,6 +12,8 @@ namespace AppTandT.BLL.Model.CollectionModels.HelpCollectionModels
 
         public string PlanTask { get; set; }
 
+        public string Weatherurl { get; set; }
+
         /// <summary>
         /// Дата ймовірного початку виконання завдання
         /// </summary>        

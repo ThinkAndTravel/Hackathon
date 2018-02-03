@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTandT.Pages.PlanPages.PlansPage"
+             xmlns:local="clr-namespace:AppTandT.Pages.Views;"
+             xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"	     
+		     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             NavigationPage.HasNavigationBar="False"
+            NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="50" />
+                
+            </Grid.RowDefinitions>
+                <ListView x:Name="PlanList" Grid.Row ="1" ItemsSource="{Binding PlanItems}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:PlanViewCell/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

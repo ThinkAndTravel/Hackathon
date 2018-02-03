@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTandT.Pages.Views.PlanViewCell"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="50" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <ffimageloading:CachedImage 
+                    x:Name="TaskView"            
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+				    DownsampleToViewSize="true"
+					Aspect="AspectFit"
+                    Grid.Column="0"
+                    Grid.RowSpan="2">
+            <ffimageloading:CachedImage.Transformations>
+                <fftransformations:CircleTransformation/>
+            </ffimageloading:CachedImage.Transformations>
+        </ffimageloading:CachedImage>
+        <ffimageloading:CachedImage 
+                    x:Name="WeatherView"            
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+				    DownsampleToViewSize="true"
+					Aspect="AspectFit"
+                    Grid.Column="3"
+                    Grid.RowSpan="2">
+            <ffimageloading:CachedImage.Transformations>
+                <fftransformations:CircleTransformation/>
+            </ffimageloading:CachedImage.Transformations>
+        </ffimageloading:CachedImage>
+        <Label x:Name="About"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"
+               TextColor="Black"/>
+        <Label x:Name="Time"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"
+               TextColor="Black"/>
+    </Grid>
+</ViewCell>
