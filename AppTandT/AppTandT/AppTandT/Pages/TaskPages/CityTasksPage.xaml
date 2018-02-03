@@ -15,7 +15,7 @@
             <ListView x:Name="listView"
                       SelectedItem="{Binding SelectedCity}" 
                       ItemsSource="{Binding CityItems}"
-                      RowHeight="120"
+                      RowHeight="100"
                       Rotation="270"
                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-60}"
                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=60}"

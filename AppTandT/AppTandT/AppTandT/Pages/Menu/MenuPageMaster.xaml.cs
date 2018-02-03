@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamvvm;
 
 namespace AppTandT.Pages.Menu
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MenuPageMaster : ContentPage
+    public partial class MenuPageMaster : ContentPage, IBasePage<MenuPageMasterModel>
     {
         public MenuPageMaster()
         {

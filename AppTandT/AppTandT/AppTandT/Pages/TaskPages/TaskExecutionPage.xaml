@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTandT.Pages.TaskPages.TaskExecutionPage"
-             xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"	     
+             xmlns:xamvvm="clr-namespace:Xamvvm; assembly=Xamvvm.Forms"	     
 		     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
 		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
@@ -22,16 +22,39 @@
                 </OnPlatform.WinPhone>
             </OnPlatform>
         </ContentPage.Padding>
-        <ContentPage.Content>
-            <Grid BackgroundColor="White">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
            
-            </Grid>
-        </ContentPage.Content>
+            <ffimageloading:CachedImage x:Name="LogoView"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+				    DownsampleToViewSize="true"
+                    Grid.Column="0"
+					Aspect="AspectFit"
+                    HeightRequest="200"
+                    WidthRequest="200">
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation/>
+                    </ffimageloading:CachedImage.Transformations>
+                </ffimageloading:CachedImage>
+            <Label x:Name="Title"
+                   Margin="10,0,10,0"
+                   FontSize="Medium"
+                   Grid.Column="1"
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="Black" />
+        </Grid>
+        <StackLayout>
+            <Label x:Name="About"          
+               FontSize="Medium"          
+               VerticalOptions="Start"
+               TextColor="Black" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
