@@ -8,29 +8,37 @@
 		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
             Title="MENU" BackgroundColor="#e8e8e8">
-   <StackLayout>
-    <Image Source="logo.png" VerticalOptions="End" Margin="0,20,0,-20"/>
-    <ffimageloading:CachedImage>
+    <StackLayout >
+        <!--<Image Source="logo.png" VerticalOptions="End" Margin="0,20,0,5"/>-->
+        <ffimageloading:CachedImage
+            x:Name="Logo"
+            HorizontalOptions="Center"
+			DownsampleToViewSize="true"
+            VerticalOptions="End"
+            Margin="0,20,0,5"
+            Source="logo.png"
+            WidthRequest="50"
+            >
 
-    </ffimageloading:CachedImage>
+        </ffimageloading:CachedImage>
 
-    <ListView HasUnevenRows="true" 
+        <ListView HasUnevenRows="true" 
 				SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding Items}" x:Name="MenuView">
 
-        <ListView.Behaviors>
-            <xamvvm:BaseEventToCommandBehavior EventName="ItemSelected" Command="{Binding ItemSelectedCommand}" />
-        </ListView.Behaviors>
+            <ListView.Behaviors>
+                <xamvvm:BaseEventToCommandBehavior EventName="ItemSelected" Command="{Binding ItemSelectedCommand}" />
+            </ListView.Behaviors>
 
-        <ListView.ItemTemplate>
-            <!--<DataTemplate>
+            <ListView.ItemTemplate>
+                <!--<DataTemplate>
                     <TextCell TextColor="Black" DetailColor="Gray"
 						Text="{Binding Title}" Detail="{Binding Details}" Command="{Binding Command}" />
                 </DataTemplate>-->
-            <DataTemplate>
-                <local:MenuListCell/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
+                <DataTemplate>
+                    <local:MenuListCell/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
 
-     </ListView>
+        </ListView>
     </StackLayout>
 </ContentPage>

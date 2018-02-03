@@ -1,6 +1,7 @@
 ﻿using Acr.UserDialogs;
 using AppTandT.BLL;
 using AppTandT.BLL.Help;
+using AppTandT.Pages.PlanPages;
 using AppTandT.Pages.TaskPages;
 using AppTandT.Pages.UserPages;
 using System;
@@ -65,13 +66,12 @@ namespace AppTandT.Pages.Menu
                 new MenuItem()
                 {
                     Title = "Friends",
-                    BackColor = Color.BlueViolet,
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
                             var masterDetailPage = this.GetPageFromCache<MainMasterDetailPageModel>();
-                            throw new  ServiceException("Friends. This will be implemented in the future!");
-                        }catch ( ServiceException e)
+                            throw new ServiceException("Friends. This will be implemented in the future!");
+                        }catch (ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -85,7 +85,8 @@ namespace AppTandT.Pages.Menu
                         {
                             await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
                         }
-                    })
+                    }),
+                    Icon = "https://d30y9cdsu7xlg0.cloudfront.net/png/201719-200.png"
                 },
 
                 new MenuItem() {
@@ -93,14 +94,12 @@ namespace AppTandT.Pages.Menu
                     Details ="Get tasks for city",
                     Command = new BaseCommand(async (param) =>
                     {
-                        try
-                        {
+                        try{
                             var page = this.GetPageFromCache<CityTasksPageModel>();
                             var masterDetailPage =
                                 this.GetPageFromCache<MainMasterDetailPageModel>();
                             masterDetailPage.GetPageModel().SetDetail(page);
-                        }
-                        catch (ServiceException e)
+                        }catch (ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -114,7 +113,8 @@ namespace AppTandT.Pages.Menu
                         {
                             await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
                         }
-                    })
+                    }),
+                    Icon = "https://d30y9cdsu7xlg0.cloudfront.net/png/396626-200.png"
                 },
 
                 new MenuItem() {
@@ -122,8 +122,8 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            throw new  ServiceException("News. This will be implemented in the future!");
-                        }catch ( ServiceException e)
+                            throw new ServiceException("News. This will be implemented in the future!");
+                        }catch (ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -137,30 +137,7 @@ namespace AppTandT.Pages.Menu
                         {
                             await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
                         }
-                    })
-                },
-
-                new MenuItem() {
-                    Title = "Tasks",
-                    Command = new BaseCommand(async (param) =>
-                    {
-                        try{
-                            throw new  ServiceException("Tasks. This will be implemented in the future!");
-                        }catch ( ServiceException e)
-                        {
-                            var conf = new AlertConfig
-                            {
-                                Message = e.Message,
-                                Title = e.Title,
-                                OkText = e.OkText
-                            };
-                            await UserDialogs.Instance.AlertAsync(conf);
-                        }
-                        catch
-                        {
-                            await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
-                        }
-                    })
+                    }), Icon = "https://www.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/news-512.png"
                 },
 
                 new MenuItem() {
@@ -168,8 +145,8 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            throw new  ServiceException("My tasks. This will be implemented in the future!");
-                        }catch ( ServiceException e)
+                            throw new ServiceException("My tasks. This will be implemented in the future!");
+                        }catch (ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -183,7 +160,8 @@ namespace AppTandT.Pages.Menu
                         {
                             await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
                         }
-                    })
+                    }),
+                    Icon = "https://i.imgur.com/WYYDbem.png"
                 },
 
                 new MenuItem() {
@@ -191,8 +169,12 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            throw new  ServiceException("Plans. This will be implemented in the future!");
-                        }catch ( ServiceException e)
+                            var page = this.GetPageFromCache<PlansPageModel>();
+                            var masterDetailPage =
+                                this.GetPageFromCache<MainMasterDetailPageModel>();
+                            masterDetailPage.GetPageModel().SetDetail(page);
+                            throw new ServiceException("Plans. This will be implemented in the future!");
+                        }catch (ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -206,7 +188,8 @@ namespace AppTandT.Pages.Menu
                         {
                             await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
                         }
-                    })
+                    }),
+                    Icon = "https://i.imgur.com/HWQv38v.png"
                 },
 
                 new MenuItem() {
@@ -218,9 +201,10 @@ namespace AppTandT.Pages.Menu
                             Sesion.CloseSession();
                             var page = this.GetPageFromCache<LoginPageModel>();
                             await this.PushPageAsync(page);
-                            this.ClearPageCache();
-                            throw new  ServiceException("We hope to see you again ;)");
-                        }catch ( ServiceException e)
+                           // this.ClearPageCache();
+                           
+                            throw new ServiceException("We hope to see you again ;)");
+                        }catch (ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -234,10 +218,9 @@ namespace AppTandT.Pages.Menu
                         {
                             await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
                         }
-                    })
+                    }),
+                    Icon = "https://image.flaticon.com/icons/png/128/56/56805.png"
                 },
-
-             
             };
 
             Items = new ObservableCollection<MenuItem>(menuItems);
