@@ -2,13 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTandT.Pages.Menu.MenuPageMaster"
+              xmlns:local="clr-namespace:AppTandT.Pages.Menu;"
              xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"
-		     xmlns:local="clr-namespace:TandT_App.Pages.View;"
 		     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
 		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"        
-             Title="MENU" BackgroundColor="#e8e8e8">
+            Title="MENU" BackgroundColor="#e8e8e8">
    <StackLayout>
     <Image Source="logo.png" VerticalOptions="End" Margin="0,20,0,-20"/>
     <ffimageloading:CachedImage>
