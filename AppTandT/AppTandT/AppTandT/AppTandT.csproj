@@ -82,6 +82,7 @@
       <DependentUpon>MenuPageMaster.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Menu\MenuPageMasterModel.cs" />
+    <Compile Include="Pages\TaskPages\AboutTaskPageModel.cs" />
     <Compile Include="Pages\TaskPages\CityTasksPage.xaml.cs">
       <DependentUpon>CityTasksPage.xaml</DependentUpon>
     </Compile>

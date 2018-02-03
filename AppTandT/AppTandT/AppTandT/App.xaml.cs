@@ -9,7 +9,7 @@ using AppTandT.Pages.Menu;
 //using TandT.XBLL;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace TandT_App
+namespace AppTandT
 {
     public partial class App : Application
     {

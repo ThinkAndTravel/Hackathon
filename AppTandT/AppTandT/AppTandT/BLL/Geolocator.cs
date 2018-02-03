@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using AppTandT.BLL.Help;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Plugin.Permissions.Abstractions;
@@ -23,10 +23,10 @@ namespace AppTandT.BLL
             if (CrossGeolocator.IsSupported)
             {
                 if (!CrossGeolocator.Current.IsGeolocationEnabled)
-                    throw new Helpers.ServiceException("Please, enable the gps.");
+                    throw new ServiceException("Please, enable the gps.");
 
                 if (!CrossGeolocator.Current.IsGeolocationAvailable)
-                    throw new Helpers.ServiceException("Sorry, gps is not availible.");
+                    throw new ServiceException("Sorry, gps is not availible.");
 
                 var hasPermission = await Utils.CheckPermissions(Permission.Location);
                 if (!hasPermission) return null;

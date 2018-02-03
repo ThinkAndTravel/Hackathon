@@ -1,5 +1,6 @@
 ﻿using AppTandT.BLL.Help;
 using AppTandT.BLL.Model;
+using AppTandT.BLL.Services;
 using AppTandT.Pages.Menu;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 using Xamvvm;
 
 namespace AppTandT.Pages.UserPages
@@ -81,7 +83,7 @@ namespace AppTandT.Pages.UserPages
                 };
                 if (loginModel.isValid())
                 {
-                    var res = await LoginAsync(loginModel);
+                    var res = await IdentityService.LoginAsync(loginModel);
                     if (res != null)
                         throw new ServiceException(res);
                     var factory = new XamvvmFormsFactory(App.Current);
