@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTandT.Pages.UserPages.Identity.RegistryPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                0, 20, 0, 0
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+                0, 0, 0, 0
+            </OnPlatform.Android>
+            <OnPlatform.WinPhone>
+                0, 0, 0, 0
+            </OnPlatform.WinPhone>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Image Source="logo.png" VerticalOptions="End" Margin="0,20,0,-20"/>
+            <Grid Grid.Row="1" Margin="20,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Entry Grid.Row="1" Text="{Binding Login}" 
+                            Placeholder="Login"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            PlaceholderColor="#bababa"/>
+                <Entry Grid.Row="2" Text="{Binding Pas}" 
+                            Placeholder="Password"
+                            IsPassword="True"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            PlaceholderColor="#bababa"/>
+                <Entry Grid.Row="3" Text="{Binding ConfirmPas}" 
+                            Placeholder="Confirm password"
+                            IsPassword="True"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            PlaceholderColor="#bababa"/>
+                <Entry Grid.Row="4" Text="{Binding Email}"
+                            Placeholder="E-mail"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            PlaceholderColor="#bababa"/>
+                <Entry Grid.Row="5" Text="{Binding FirstName}"
+                            Placeholder="First name"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            PlaceholderColor="#bababa"/>
+                <Entry Grid.Row="6" Text="{Binding LastName}"
+                            Placeholder="Last name"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            PlaceholderColor="#bababa"/>
+                <Button Grid.Row="7" Command="{Binding RegistryButtonCommand}"
+                            Text="Register"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            HeightRequest ="50"
+                            VerticalOptions = "Start"
+                            BackgroundColor = "#3897F0"
+                            TextColor = "White"/>
+                <Button Grid.Row="8" Command="{Binding LoginButtonCommand}"
+                            Text="Go to login page"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            HeightRequest ="50"
+                            VerticalOptions = "Start"
+                            BackgroundColor = "#808080"
+                            TextColor = "White"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
