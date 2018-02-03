@@ -167,5 +167,6 @@ namespace AppTandT.Pages.TaskPages
 
         public string LogoUrl { get; set; }
     }
+
 }
 
