@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTandT.Pages.TaskPages.CityTasksPage"
+              xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"
+		     xmlns:local="clr-namespace:TandT_.Pages.TaskPages;"
+		     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             NavigationPage.HasNavigationBar="False"
+            NavigationPage.HasBackButton="False"
+             >
+    <ContentPage.Content>
+        <RelativeLayout>
+            <ListView x:Name="listView"
+                      SelectedItem="{Binding SelectedCity}" 
+                      ItemsSource="{Binding CityItems}"
+                      RowHeight="120"
+                      Rotation="270"
+                      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-60}"
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=60}"
+                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=120}"
+                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                      >
+
+
+                <ListView.Behaviors>
+                    <xamvvm:BaseEventToCommandBehavior EventName="ItemSelected" Command="{Binding CitySelectedCommand}"/>
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:CityViewCell/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=120}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-120}"
+                >
+                <ListView 
+                      SelectedItem="{Binding SelectedTask}" 
+                      ItemsSource="{Binding TaskItems}"
+                      RowHeight="150"
+                      SeparatorVisibility="None"
+                      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-60}"
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=60}"
+                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=120}"
+                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                      >
+
+
+                    <ListView.Behaviors>
+                        <xamvvm:BaseEventToCommandBehavior EventName="ItemSelected" Command="{Binding TaskSelectedCommand}"/>
+                    </ListView.Behaviors>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <local:TaskViewCell/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
