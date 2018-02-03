@@ -1,8 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppTandT.Pages.TaskPages.TaskExecutionPage">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
+             x:Class="AppTandT.Pages.TaskPages.TaskExecutionPage"
+             xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"	     
+		     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             >
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <OnPlatform.iOS>
+                    0, 20, 0, 0
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    0, 0, 0, 0
+                </OnPlatform.Android>
+                <OnPlatform.WinPhone>
+                    0, 0, 0, 0
+                </OnPlatform.WinPhone>
+            </OnPlatform>
+        </ContentPage.Padding>
+        <ContentPage.Content>
+            <Grid BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+           
+            </Grid>
+        </ContentPage.Content>
 </ContentPage>

@@ -31,4 +31,9 @@ using Android.App;
 
 // Add some common permissions, these can be removed if not needed
 [assembly: UsesPermission(Android.Manifest.Permission.Internet)]
+[assembly: UsesPermission(Android.Manifest.Permission.AccessWifiState)]
+[assembly: UsesPermission(Android.Manifest.Permission.AccessNetworkState)]
 [assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
+
+[assembly: UsesFeature("android.hardware.camera", Required = false)]//для Xam.Plugin.Media
+[assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]//для Xam.Plugin.Media

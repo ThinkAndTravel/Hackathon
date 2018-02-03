@@ -13,6 +13,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Plugin.Permissions.Abstractions;
+using Acr.UserDialogs;
 
 namespace AppTandT.Droid
 {
@@ -39,6 +40,7 @@ namespace AppTandT.Droid
             };
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            UserDialogs.Init(this);
             LoadApplication(new App());
         }
 
