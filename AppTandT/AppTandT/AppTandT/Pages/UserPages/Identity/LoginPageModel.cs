@@ -3,6 +3,7 @@ using AppTandT.BLL.Help;
 using AppTandT.BLL.Model;
 using AppTandT.BLL.Services;
 using AppTandT.Pages.Menu;
+using AppTandT.Pages.UserPages.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,7 @@ namespace AppTandT.Pages.UserPages
         {
             try
             {
-                var pageToPush = this.GetPageFromCache<MainMasterDetailPageModel>();
+                var pageToPush = this.GetPageFromCache<RegistryPageModel>();
                 await this.PushPageAsync(pageToPush);
             }
             catch (ServiceException e)

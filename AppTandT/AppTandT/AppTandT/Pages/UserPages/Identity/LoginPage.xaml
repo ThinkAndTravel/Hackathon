@@ -2,11 +2,78 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTandT.Pages.UserPages.LoginPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                0, 20, 0, 0
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+                0, 0, 0, 0
+            </OnPlatform.Android>
+            <OnPlatform.WinPhone>
+                0, 0, 0, 0
+            </OnPlatform.WinPhone>
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" Margin="20,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Source="logo.png"  HeightRequest="100" VerticalOptions="End"/>
+                <Entry Grid.Row="1" Text="{Binding Login}" 
+                            Placeholder="Login"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            PlaceholderColor="#bababa"/>
+                <Entry Grid.Row="2" Text="{Binding Password}" 
+                            Placeholder="Password"
+                            IsPassword="True"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            PlaceholderColor="#bababa"/>
+                <Button Grid.Row="3" Command="{Binding LoginButtonCommand}" 
+                            Text="Login"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            HeightRequest ="50"
+                            VerticalOptions = "Start"
+                            BackgroundColor = "#3897F0"
+                            TextColor = "White"/>
+                <Button Grid.Row="4" Command="{Binding RegistryButtonCommand}"
+                            Text="Go to sign up page"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            HeightRequest ="50"
+                            VerticalOptions = "Start"
+                            BackgroundColor = "#808080"
+                            TextColor = "White"
+                        />
+                <Button Grid.Row="5" 
+                            Command="{Binding PhotoButtonCommand}"
+                            Text="Go to photo page"
+                            FontSize ="16"
+                            FontFamily ="Verdana"
+                            HeightRequest ="50"
+                            VerticalOptions = "Start"
+                            BackgroundColor = "#808080"
+                            TextColor = "White"   
+                        />
+            </Grid>
+        </Grid>
     </ContentPage.Content>
+
 </ContentPage>
