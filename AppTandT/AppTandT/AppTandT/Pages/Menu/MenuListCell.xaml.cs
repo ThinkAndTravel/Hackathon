@@ -9,9 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace AppTandT.Pages.Menu
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MenuListCell : ViewCell
-	{
+	
         [XamlCompilation(XamlCompilationOptions.Compile)]
         public partial class MenuListCell : ViewCell
         {
@@ -24,7 +22,7 @@ namespace AppTandT.Pages.Menu
             {
                 base.OnBindingContextChanged();
 
-                var item = BindingContext as TandT_App.PageModels.MenuPageMasterModel.MenuItem;
+                var item = BindingContext as MenuPageMasterModel.MenuItem;
                 if (item == null)
                     return;
 
@@ -47,5 +45,5 @@ namespace AppTandT.Pages.Menu
 
             }
         }
-    }
+    
 }

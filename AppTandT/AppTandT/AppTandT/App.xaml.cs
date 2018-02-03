@@ -3,6 +3,9 @@ using AppTandT.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamvvm;
+using AppTandT.BLL;
+using AppTandT.Pages.UserPages;
+using AppTandT.Pages.Menu;
 //using TandT.XBLL;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -29,8 +32,7 @@ namespace TandT_App
             CachedImage.FixedAndroidMotionEventHandler = true;
 
             //init Horizontal List View
-            FlowListView.Init();
-
+          
             // Xamvvm init
             var factory = new XamvvmFormsFactory(this);
             if (Dekanat.isLogined())

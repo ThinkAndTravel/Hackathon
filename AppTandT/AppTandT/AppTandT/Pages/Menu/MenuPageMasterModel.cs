@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AppTandT.BLL.Help;
+using AppTandT.Pages.TaskPages;
+using AppTandT.Pages.UserPages;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -39,7 +42,7 @@ namespace AppTandT.Pages.Menu
                             var masterDetailPage =
                                 this.GetPageFromCache<MainMasterDetailPageModel>();
                             masterDetailPage.GetPageModel().SetDetail(page);
-                        }catch (TandT.XBLL.Helpers.ServiceException e)
+                        }catch (ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -65,8 +68,8 @@ namespace AppTandT.Pages.Menu
                     {
                         try{
                             var masterDetailPage = this.GetPageFromCache<MainMasterDetailPageModel>();
-                            throw new TandT.XBLL.Helpers.ServiceException("Friends. This will be implemented in the future!");
-                        }catch (TandT.XBLL.Helpers.ServiceException e)
+                            throw new  ServiceException("Friends. This will be implemented in the future!");
+                        }catch ( ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -88,12 +91,14 @@ namespace AppTandT.Pages.Menu
                     Details ="Get tasks for city",
                     Command = new BaseCommand(async (param) =>
                     {
-                        try{
+                        try
+                        {
                             var page = this.GetPageFromCache<CityTasksPageModel>();
                             var masterDetailPage =
                                 this.GetPageFromCache<MainMasterDetailPageModel>();
                             masterDetailPage.GetPageModel().SetDetail(page);
-                        }catch (TandT.XBLL.Helpers.ServiceException e)
+                        }
+                        catch (ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -115,8 +120,8 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            throw new TandT.XBLL.Helpers.ServiceException("News. This will be implemented in the future!");
-                        }catch (TandT.XBLL.Helpers.ServiceException e)
+                            throw new  ServiceException("News. This will be implemented in the future!");
+                        }catch ( ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -138,8 +143,8 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            throw new TandT.XBLL.Helpers.ServiceException("Tasks. This will be implemented in the future!");
-                        }catch (TandT.XBLL.Helpers.ServiceException e)
+                            throw new  ServiceException("Tasks. This will be implemented in the future!");
+                        }catch ( ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -161,8 +166,8 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            throw new TandT.XBLL.Helpers.ServiceException("My tasks. This will be implemented in the future!");
-                        }catch (TandT.XBLL.Helpers.ServiceException e)
+                            throw new  ServiceException("My tasks. This will be implemented in the future!");
+                        }catch ( ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -184,8 +189,8 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            throw new TandT.XBLL.Helpers.ServiceException("Plans. This will be implemented in the future!");
-                        }catch (TandT.XBLL.Helpers.ServiceException e)
+                            throw new  ServiceException("Plans. This will be implemented in the future!");
+                        }catch ( ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -212,8 +217,8 @@ namespace AppTandT.Pages.Menu
                             var page = this.GetPageFromCache<LoginPageModel>();
                             await this.PushPageAsync(page);
                             this.ClearPageCache();
-                            throw new TandT.XBLL.Helpers.ServiceException("We hope to see you again ;)");
-                        }catch (TandT.XBLL.Helpers.ServiceException e)
+                            throw new  ServiceException("We hope to see you again ;)");
+                        }catch ( ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -230,31 +235,7 @@ namespace AppTandT.Pages.Menu
                     })
                 },
 
-                new MenuItem() {
-                    Title = "CV",
-                    Command = new BaseCommand(async (param) =>
-                    {
-                        try{
-                            throw new TandT.XBLL.Helpers.ServiceException("Doozer's stuff");
-                        }catch (TandT.XBLL.Helpers.ServiceException e)
-                        {
-                            var conf = new AlertConfig
-                            {
-                                Message = e.Message,
-                                Title = e.Title,
-                                OkText = e.OkText
-                            };
-                            await UserDialogs.Instance.AlertAsync(conf);
-                        }
-                        catch
-                        {
-                            await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
-                        }
-                    })
-                },
-
-
-
+             
             };
 
             Items = new ObservableCollection<MenuItem>(menuItems);
