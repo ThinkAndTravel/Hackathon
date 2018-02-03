@@ -42,36 +42,15 @@
     <Compile Include="BLL\ConectPage.cs" />
     <Compile Include="BLL\Dekanat.cs" />
     <Compile Include="BLL\Geolocator.cs" />
-    <Compile Include="BLL\Helpers\ServiceException.cs" />
-    <Compile Include="BLL\Helpers\Settings.cs" />
-    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Comment.cs" />
-    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Condition.cs" />
-    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Confirm.cs" />
-    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Location.cs" />
-    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Notice.cs" />
-    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Plan.cs" />
-    <Compile Include="BLL\Models\CollectionModels\HelpCollectionModels\Question.cs" />
-    <Compile Include="BLL\Models\CollectionModels\MainCollectionModels\MainPost.cs" />
-    <Compile Include="BLL\Models\CollectionModels\MainCollectionModels\MainTask.cs" />
-    <Compile Include="BLL\Models\CollectionModels\MainCollectionModels\MainTour.cs" />
-    <Compile Include="BLL\Models\CollectionModels\MainCollectionModels\MainUser.cs" />
-    <Compile Include="BLL\Models\CollectionModels\Photo.cs" />
-    <Compile Include="BLL\Models\CollectionModels\Post.cs" />
-    <Compile Include="BLL\Models\CollectionModels\Task.cs" />
-    <Compile Include="BLL\Models\CollectionModels\Tour.cs" />
-    <Compile Include="BLL\Models\CollectionModels\User.cs" />
-    <Compile Include="BLL\Models\Image.cs" />
-    <Compile Include="BLL\Models\LoginModel.cs" />
-    <Compile Include="BLL\Models\RegistryModel.cs" />
     <Compile Include="BLL\Services\ClientService.cs" />
-    <Compile Include="BLL\Services\TaskService.cs" />
     <Compile Include="BLL\Sesion.cs" />
     <Compile Include="BLL\Utils.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Pages\Menu\MainMasterDetailPage.cs" />
     <Compile Include="Pages\Menu\MainMasterDetailPageModel.cs" />
+    <Compile Include="Pages\Menu\MenuListCell.xaml.cs">
+      <DependentUpon>MenuListCell.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Menu\MenuPageMaster.xaml.cs">
       <DependentUpon>MenuPageMaster.xaml</DependentUpon>
     </Compile>
@@ -95,13 +74,15 @@
     <Compile Include="Pages\Views\CityViewCell.xaml.cs">
       <DependentUpon>CityViewCell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Views\PostViewCell.xaml.cs">
+      <DependentUpon>PostViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\TaskViewCell.xaml.cs">
+      <DependentUpon>TaskViewCell.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -165,6 +146,15 @@
     <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Splat.1.6.2\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.5.0.122203\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -182,10 +172,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLL\Models\ViewModels\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +214,24 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Menu\MenuListCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Views\PostViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Views\TaskViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -231,5 +239,10 @@
       <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
 </Project>

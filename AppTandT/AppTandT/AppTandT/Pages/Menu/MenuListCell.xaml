@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTandT.Pages.Menu.MenuListCell"
+          xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"
+		     
+		     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <ViewCell.View>
+        <StackLayout>
+            <Grid x:Name="rowGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ffimageloading:CachedImage
+                    x:Name="Icon"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+				    DownsampleToViewSize="true"
+					Aspect="AspectFit"
+                    HeightRequest="35"
+                    Grid.Column="0"
+                    WidthRequest="35"
+                    Grid.RowSpan="2"
+                    >
+                </ffimageloading:CachedImage>
+
+                <Label Text=""  x:Name="Text" Grid.Column="1" Grid.Row="0" FontSize="Medium"/>
+                <Label Text=""  x:Name="Detail" Grid.Column="1" Grid.Row="1" FontSize="Small"/>
+            </Grid>
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>

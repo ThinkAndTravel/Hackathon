@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="AppTandT.Pages.Views.TaskViewCell"
+          xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"
+		  xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		  xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+          xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Column="0"
+                     Margin="10,0,10,0"
+                     Spacing="5">
+            <ffimageloading:CachedImage x:Name="LogoView"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+				    DownsampleToViewSize="true"
+					Aspect="AspectFit"
+                    HeightRequest="100"
+                    WidthRequest="100">
+                <ffimageloading:CachedImage.Transformations>
+                    <fftransformations:CircleTransformation/>
+                </ffimageloading:CachedImage.Transformations>
+            </ffimageloading:CachedImage>
+            <Label x:Name="Title"
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="Black" />
+        </StackLayout>
+        <Label x:Name="About"
+               Margin="10,0,10,0"
+               FontSize="Medium"
+               Grid.Column="1"
+               VerticalOptions="Start"
+               TextColor="Black" />
+    </Grid>
+</ViewCell>
