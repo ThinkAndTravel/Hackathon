@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using AppTandT.BLL.Help;
+using AppTandT.BLL.Model.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +8,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using TandT.XBLL.Models;
 using Xamarin.Forms;
 
 namespace AppTandT.BLL.Services
@@ -31,7 +32,7 @@ namespace AppTandT.BLL.Services
 
             //  if(OnShowAlert != null)OnShowAlert("внимание внимание", "тупо месседж из таск сервиса", "оке");
             if (response.StatusCode != HttpStatusCode.OK)
-                throw new Helpers.ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
+                throw new ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
 
             var str = await response.Content.ReadAsStringAsync();
             var arr = JsonConvert.DeserializeObject<List<TaskViewModel>>(str);
@@ -54,7 +55,7 @@ namespace AppTandT.BLL.Services
             var response = await client.GetAsync(url);
 
             if (response.StatusCode != HttpStatusCode.OK)
-                throw new Helpers.ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
+                throw new ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
 
             var str = await response.Content.ReadAsStringAsync();
             var arr = JsonConvert.DeserializeObject<List<TaskViewModel>>(str);
@@ -68,7 +69,7 @@ namespace AppTandT.BLL.Services
             var response = await client.GetAsync(url);
 
             if (response.StatusCode != HttpStatusCode.OK)
-                throw new Helpers.ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
+                throw new ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
 
             var str = await response.Content.ReadAsStringAsync();
             var arr = JsonConvert.DeserializeObject<List<TaskViewModel>>(str);
@@ -91,7 +92,7 @@ namespace AppTandT.BLL.Services
             var response = await client.GetAsync(url);
 
             if (response.StatusCode != HttpStatusCode.OK)
-                throw new Helpers.ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
+                throw new ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
 
             var str = await response.Content.ReadAsStringAsync();
             int? ck = JsonConvert.DeserializeObject<int?>(str);
@@ -112,7 +113,7 @@ namespace AppTandT.BLL.Services
 
             var str = await response.Content.ReadAsStringAsync();
             var obj = JsonConvert.DeserializeObject<JwtModel>(str);
-            throw new Helpers.ServiceException(obj.message);
+            throw new ServiceException(obj.message);
         }
         public static async Task<bool> AddTaskA(TaskServiceModel model)
         {
@@ -128,7 +129,7 @@ namespace AppTandT.BLL.Services
 
             var str = await response.Content.ReadAsStringAsync();
             var obj = JsonConvert.DeserializeObject<JwtModel>(str);
-            throw new Helpers.ServiceException(obj.message);
+            throw new ServiceException(obj.message);
         }
     }
 }

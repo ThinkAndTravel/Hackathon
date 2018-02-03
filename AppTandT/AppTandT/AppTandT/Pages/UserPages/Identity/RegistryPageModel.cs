@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppTandT.BLL.Help;
+using AppTandT.BLL.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,19 +75,19 @@ namespace AppTandT.Pages.UserPages.Identity
                     await this.PopPageAsync();
                 }
             }
-            catch (TandT.XBLL.Helpers.ServiceException e)
+            catch (ServiceException e)
             {
-                var conf = new AlertConfig
+             /*   var conf = new AlertConfig
                 {
                     Message = e.Message,
                     Title = e.Title,
                     OkText = e.OkText
                 };
-                await UserDialogs.Instance.AlertAsync(conf);
+                await UserDialogs.Instance.AlertAsync(conf);*/
             }
             catch
             {
-                await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
+             //   await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
             }
         }
         public ICommand RegistryButtonCommand {
@@ -104,19 +106,19 @@ namespace AppTandT.Pages.UserPages.Identity
             {
                 await this.PopPageAsync();
             }
-            catch (TandT.XBLL.Helpers.ServiceException e)
+            catch (ServiceException e)
             {
-                var conf = new AlertConfig
+            /*    var conf = new AlertConfig
                 {
                     Message = e.Message,
                     Title = e.Title,
                     OkText = e.OkText
                 };
-                await UserDialogs.Instance.AlertAsync(conf);
+                await UserDialogs.Instance.AlertAsync(conf);*/
             }
             catch
             {
-                await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
+             //   await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
             }
 
         }
