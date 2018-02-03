@@ -70,7 +70,6 @@
     <Compile Include="BLL\Services\TaskService.cs" />
     <Compile Include="BLL\Sesion.cs" />
     <Compile Include="BLL\Utils.cs" />
-    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Pages\Menu\MainMasterDetailPage.cs" />
     <Compile Include="Pages\Menu\MainMasterDetailPageModel.cs" />
     <Compile Include="Pages\Menu\MenuListCell.xaml.cs">

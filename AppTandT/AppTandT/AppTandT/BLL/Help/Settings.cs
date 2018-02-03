@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Plugin.Settings;
+using Plugin.Settings.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppTandT.BLL.Helpers
+namespace AppTandT.BLL.Help
 {
     /// <summary>
 	/// This is the Settings static class that can be used in your Core solution or in any

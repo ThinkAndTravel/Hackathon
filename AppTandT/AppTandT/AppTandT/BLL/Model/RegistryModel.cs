@@ -22,20 +22,20 @@ namespace AppTandT.BLL.Model
         public bool isValid()
         {
             if (Login == null || Email == null || Pas == null || ConfirmPas == null || FirstName == null || LastName == null)
-                throw new Helpers.ServiceException("All fields must be filled.", okText: "Ok");
+                throw new Help.ServiceException("All fields must be filled.", okText: "Ok");
 
             if (Login.Length == 0)
-                throw new Helpers.ServiceException("Login can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("Login can't be empty!", okText: "Ok");
             if (Email.Length == 0)
-                throw new Helpers.ServiceException("Email can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("Email can't be empty!", okText: "Ok");
             if (Pas != ConfirmPas)
-                throw new Helpers.ServiceException("Passwords are different!", okText: "Ok");
+                throw new Help.ServiceException("Passwords are different!", okText: "Ok");
             if (Pas.Length == 0)
-                throw new Helpers.ServiceException("Password can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("Password can't be empty!", okText: "Ok");
             if (FirstName.Length == 0)
-                throw new Helpers.ServiceException("First name can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("First name can't be empty!", okText: "Ok");
             if (LastName.Length == 0)
-                throw new Helpers.ServiceException("Last name can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("Last name can't be empty!", okText: "Ok");
 
 
             Login = Login.Trim();
@@ -46,17 +46,17 @@ namespace AppTandT.BLL.Model
             LastName = LastName.Trim();
 
             if (Login.Length == 0)
-                throw new Helpers.ServiceException("Login can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("Login can't be empty!", okText: "Ok");
             if (Email.Length == 0)
-                throw new Helpers.ServiceException("Email can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("Email can't be empty!", okText: "Ok");
             if (Pas != ConfirmPas)
-                throw new Helpers.ServiceException("Passwords are different!", okText: "Ok");
+                throw new Help.ServiceException("Passwords are different!", okText: "Ok");
             if (Pas.Length == 0)
-                throw new Helpers.ServiceException("Password can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("Password can't be empty!", okText: "Ok");
             if (FirstName.Length == 0)
-                throw new Helpers.ServiceException("First name can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("First name can't be empty!", okText: "Ok");
             if (LastName.Length == 0)
-                throw new Helpers.ServiceException("Last name can't be empty!", okText: "Ok");
+                throw new Help.ServiceException("Last name can't be empty!", okText: "Ok");
 
             bool valid_login = Login.Length > 0;
 
@@ -71,15 +71,15 @@ namespace AppTandT.BLL.Model
             bool valid_lname = LastName.Length > 0;///
 
             if (!valid_login)
-                throw new Helpers.ServiceException("Login is invalid!", okText: "Ok");
+                throw new Help.ServiceException("Login is invalid!", okText: "Ok");
             if (!valid_mail)
-                throw new Helpers.ServiceException("Email is invalid!", okText: "Ok");
+                throw new Help.ServiceException("Email is invalid!", okText: "Ok");
             if (!valid_pass)
-                throw new Helpers.ServiceException("Passwords are invalid!", okText: "Ok");
+                throw new Help.ServiceException("Passwords are invalid!", okText: "Ok");
             if (!valid_fname)
-                throw new Helpers.ServiceException("First name is invalid!", okText: "Ok");
+                throw new Help.ServiceException("First name is invalid!", okText: "Ok");
             if (!valid_lname)
-                throw new Helpers.ServiceException("Last name is invalid!", okText: "Ok");
+                throw new Help.ServiceException("Last name is invalid!", okText: "Ok");
 
             return true;// valid_login && valid_pass && valid_mail && valid_fname && valid_lname;
         }

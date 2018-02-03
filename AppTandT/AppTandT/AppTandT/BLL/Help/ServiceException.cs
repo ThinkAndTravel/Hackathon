@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppTandT.BLL.Helpers
+namespace AppTandT.BLL.Help
 {
     public class ServiceException : System.Exception
     {
