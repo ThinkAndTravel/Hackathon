@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AppTandT.BLL.Model.CollectionModels.HelpCollectionModels;
 
 namespace AppTandT.Pages.Views
 {
@@ -20,14 +21,14 @@ namespace AppTandT.Pages.Views
         protected override void OnBindingContextChanged()
         {
             base.OnBindingContextChanged();
-            /*
-           var item = BindingContext as PlanItems;
+            
+           var item = BindingContext as Plan;
             if (item == null)
                 return;
-            TaskView.Source = item.Url;
-            About = item.About;
-            Time = item.DateStart + item.DateFinish;
-            WeatherView.Source = item.Weather;*/
+            TaskView.Source = item.PlanTask;
+            About.Text = item.About;
+            Time.Text = item.DateStart.ToString() + " - " + item.DateFinish.ToString();
+            WeatherView.Source = item.Weather;
 
         }
     }

@@ -12,17 +12,17 @@ namespace AppTandT.BLL.Model.CollectionModels.HelpCollectionModels
 
         public string PlanTask { get; set; }
 
-        public string Weatherurl { get; set; }
+        public string Weather { get; set; }
 
         /// <summary>
         /// Дата ймовірного початку виконання завдання
         /// </summary>        
-        public DateTime? DateStart = null; //{ get; set; }
+        public DateTime DateStart { get; set; }
 
         /// <summary>
         /// Дата ймовірного закінчення виконання завдання 
         /// </summary>        
-        public DateTime? DateClose = null; // { get; set; }
+        public DateTime DateFinish { get; set; }
 
         /// <summary>
         /// Якийсь опис юзера

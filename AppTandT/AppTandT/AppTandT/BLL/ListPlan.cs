@@ -19,11 +19,11 @@ namespace AppTandT.BLL
 
             set => AppSettings.AddOrUpdateValue(nameof(Plans), value);
         }
-        public void SET(List<Plan> list)
+        public static void SET(List<Plan> list)
         {
             Plans = JsonConvert.SerializeObject(list);
         }
-        public List<Plan> GET()
+        public static List<Plan> GET()
         {
             return JsonConvert.DeserializeObject<List<Plan>>(Plans);
         }

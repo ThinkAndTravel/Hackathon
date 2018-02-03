@@ -17,13 +17,14 @@
                 <RowDefinition Height="50" />
                 
             </Grid.RowDefinitions>
-                <ListView x:Name="PlanList" Grid.Row ="1" ItemsSource="{Binding PlanItems}">
+            <ListView x:Name="PlanList" Grid.Row ="1" ItemsSource="{Binding PlanItems}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <local:PlanViewCell/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button x:Name ="AddButton" Text="Додати план"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
