@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamvvm;
 
-namespace AppTandT.BLL.Models
+namespace AppTandT.BLL.Model
 {
     public class LoginModel
     {

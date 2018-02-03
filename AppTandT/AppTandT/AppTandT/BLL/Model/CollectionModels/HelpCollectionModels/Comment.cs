@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppTandT.BLL.Models.CollectionModels.HelpCollectionModels
+namespace AppTandT.BLL.Model.CollectionModels.HelpCollectionModels
 {
     public class Comment
     {

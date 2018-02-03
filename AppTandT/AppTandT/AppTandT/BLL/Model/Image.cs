@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppTandT.BLL.Models
+namespace AppTandT.BLL.Model
 {
     public class Image
     {
