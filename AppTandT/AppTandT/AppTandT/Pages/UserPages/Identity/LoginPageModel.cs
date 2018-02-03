@@ -50,17 +50,17 @@ namespace AppTandT.Pages.UserPages
             }
             catch (ServiceException e)
             {
-             /*   var conf = new AlertConfig
+                var conf = new AlertConfig
                 {
                     Message = e.Message,
                     Title = e.Title,
                     OkText = e.OkText
                 };
-                await UserDialogs.Instance.AlertAsync(conf);*/
+                await UserDialogs.Instance.AlertAsync(conf);
             }
             catch
             {
-              //  await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
+                await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
             }
         }
         public ICommand RegistryButtonCommand {
