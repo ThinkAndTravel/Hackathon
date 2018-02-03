@@ -12,8 +12,8 @@
                     HorizontalOptions="CenterAndExpand"
 				    DownsampleToViewSize="true"
 					Aspect="AspectFit"
-                    HeightRequest="70"
-                    WidthRequest="70">
+                    HeightRequest="50"
+                    WidthRequest="50">
             <ffimageloading:CachedImage.Transformations>
                 <fftransformations:CircleTransformation/>
             </ffimageloading:CachedImage.Transformations>

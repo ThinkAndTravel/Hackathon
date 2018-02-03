@@ -9,6 +9,6 @@ namespace AppTandT.BLL
     /// </summary>
     public static class App
     {
-        public static readonly string ApiUri = "http://tandtapi20171122124810.azurewebsites.net/";
+        public static readonly string ApiUri = "http://tandt20180203091155.azurewebsites.net/";
     }
 }
