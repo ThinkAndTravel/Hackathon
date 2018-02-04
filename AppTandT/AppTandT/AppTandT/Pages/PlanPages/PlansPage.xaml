@@ -8,23 +8,24 @@
 		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              NavigationPage.HasNavigationBar="False"
-            NavigationPage.HasBackButton="False">
+             NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
                 <RowDefinition Height="50" />
-                <RowDefinition Height="250" />
-                <RowDefinition Height="50" />
-                
             </Grid.RowDefinitions>
-            <ListView x:Name="PlanList" Grid.Row ="1" ItemsSource="{Binding PlanItems}">
+            <ListView x:Name="PlanList" Grid.Row = "0" ItemsSource="{Binding PlanItems}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <local:PlanViewCell/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button x:Name ="AddButton" Text="Додати план"/>
+            <Button x:Name="AddPlan" 
+                    Text="Додати новий план"
+                    Command="{Binding AddPlanButtonCommand}"
+                    Grid.Row="1"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

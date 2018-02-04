@@ -4,7 +4,7 @@ namespace AppTandT.Pages.TaskPages
 {
     internal class TaskExecutionPageModel :  BasePageModel
     {
-        public TaskExecutionPageModel(string item)
+        public TaskExecutionPageModel(string TaskId)
         {
 
         }

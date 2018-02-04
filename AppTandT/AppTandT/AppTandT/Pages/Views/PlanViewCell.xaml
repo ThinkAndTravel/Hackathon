@@ -7,13 +7,13 @@
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50" />
-            <ColumnDefinition Width="250" />
-            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ffimageloading:CachedImage 
                     x:Name="TaskView"            
@@ -22,6 +22,7 @@
 				    DownsampleToViewSize="true"
 					Aspect="AspectFit"
                     Grid.Column="0"
+                    Grid.Row="0"
                     Grid.RowSpan="2">
             <ffimageloading:CachedImage.Transformations>
                 <fftransformations:CircleTransformation/>
@@ -33,7 +34,8 @@
                     HorizontalOptions="CenterAndExpand"
 				    DownsampleToViewSize="true"
 					Aspect="AspectFit"
-                    Grid.Column="3"
+                    Grid.Column="2"
+                    Grid.Row="0"
                     Grid.RowSpan="2">
             <ffimageloading:CachedImage.Transformations>
                 <fftransformations:CircleTransformation/>
@@ -42,10 +44,15 @@
         <Label x:Name="About"
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="CenterAndExpand"
-               TextColor="Black"/>
+               TextColor="Black"
+               Grid.Column="1"
+               Grid.Row="0"/>
+        
         <Label x:Name="Time"
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="CenterAndExpand"
-               TextColor="Black"/>
+               TextColor="Black"
+               Grid.Column="1"
+               Grid.Row="1"/>
     </Grid>
 </ViewCell>
