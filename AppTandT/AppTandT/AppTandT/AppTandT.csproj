@@ -107,6 +107,10 @@
       <DependentUpon>RegistryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\UserPages\Identity\RegistryPageModel.cs" />
+    <Compile Include="Pages\UserPages\NewsPage.xaml.cs">
+      <DependentUpon>NewsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserPages\NewsPageModel.cs" />
     <Compile Include="Pages\UserPages\UserPostsPageModel.cs" />
     <Compile Include="Pages\UserPages\UserPostsPage.xaml.cs">
       <DependentUpon>UserPostsPage.xaml</DependentUpon>
@@ -301,6 +305,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Views\PlanViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\UserPages\NewsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

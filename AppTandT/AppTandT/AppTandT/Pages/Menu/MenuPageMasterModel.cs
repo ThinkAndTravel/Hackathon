@@ -122,7 +122,12 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            throw new ServiceException("News. This will be implemented in the future!");
+                            var page = this.GetPageFromCache<NewsPageModel>();
+                            var masterDetailPage =
+                                this.GetPageFromCache<MainMasterDetailPageModel>();
+                           masterDetailPage.GetPageModel().SetDetail(page);
+
+                         //   throw new ServiceException("News. This will be implemented in the future!");
                         }catch (ServiceException e)
                         {
                             var conf = new AlertConfig
@@ -133,7 +138,7 @@ namespace AppTandT.Pages.Menu
                             };
                             await UserDialogs.Instance.AlertAsync(conf);
                         }
-                        catch
+                        catch (Exception e)
                         {
                             await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
                         }
