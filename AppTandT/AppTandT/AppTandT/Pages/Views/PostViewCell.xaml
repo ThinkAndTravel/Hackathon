@@ -44,31 +44,15 @@
                                     HeightRequest="300">
         </ffimageloading:CachedImage>
 
-        <StackLayout x:Name="SvgIcons"
-                     Margin="10,0,10,0"
-                     Orientation="Horizontal"
-                     HorizontalOptions="FillAndExpand"
-                     Grid.Row="2">
-
-            <ffimageloading:CachedImage                                
-                Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2S7NTMNLH8U0krCDKZZjcoIRMMMW8F-pZs68c_Hs7F-zdy7SC"
-                                    HorizontalOptions="End"
-                                    VerticalOptions="Center"
-                                    DownsampleToViewSize="true"
-                                    Aspect="AspectFill"
-                                    HeightRequest="40">
-            </ffimageloading:CachedImage>
-            <ffimageloading:CachedImage                                
-                Source="https://d30y9cdsu7xlg0.cloudfront.net/png/24079-200.png"
-                HorizontalOptions="End"
-                                    VerticalOptions="Center"
-                                    DownsampleToViewSize="true"
-                                    Aspect="AspectFill"
-                                    HeightRequest="40">
-            </ffimageloading:CachedImage>
-        </StackLayout>
-
-        <Label x:Name="AboutView" Grid.Row="3" TextColor="Black" Margin="10,0,10,0"/>
+            <Grid Grid.Row="2"  HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="https://d30y9cdsu7xlg0.cloudfront.net/png/24079-200.png" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="0"/>
+            <Image Source="https://png.icons8.com/metro/1600/like.png" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Opacity="0.6" />
+                 </Grid>
     </Grid>
+            
 
 </ViewCell>

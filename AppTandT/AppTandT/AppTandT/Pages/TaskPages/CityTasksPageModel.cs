@@ -26,7 +26,7 @@ namespace AppTandT.Pages.TaskPages
 
             var city0 = new CityItem()
             {
-                Name = "Unit City",
+                Name = "UNIT City",
                 LogoUrl = "https://apply.unit.ua/assets/img/logo.png?v043"
             };
             var city1 = new CityItem()
@@ -119,7 +119,7 @@ namespace AppTandT.Pages.TaskPages
                 if (SelectedCity == null)
                     selectedCity = CityItems.First<CityItem>();
                 // тут повинна бути загрузка списку завдань
-                var downloadTasks = await TaskService.GetTasksForCityAsync("u1:1", "City");
+                var downloadTasks = await TaskService.GetTasksForCityAsync("u1:1", SelectedCity.Name);
                 foreach (var cur in downloadTasks)
                 {
                     list.Add(
@@ -129,20 +129,22 @@ namespace AppTandT.Pages.TaskPages
                             About = cur.About,
                         });
                 }
-                //list.Add(new TaskItem()
-                //{
-                //    Title = "Будинок з химерами",
-                //    LogoUrl = "http://bm.img.com.ua/berlin/storage/news/orig/7/e4/b0c8b53f913b6bec26e48ac0d3a28e47.jpg",
-                //    About = "Cпоруда з прикрасами міфологічних та мисливських сюжетів, є головною архітектурною спорудою раннього декоративного стилю модерн міста Києва, столиці України. Свою назву отримала завдяки скульптурним прикрасам, тематика яких — тваринний наземний та підводний світи, атрибути полювання, казкові істоти"
-                //}
-                //    );
-                //var task1 = new TaskItem()
-                //{
-                //    Title = "Майдан Незалежності",
-                //    LogoUrl = "https://st2.depositphotos.com/1536490/11132/v/950/depositphotos_111323836-stock-illustration-maidan-nezalezhnosti-kiev.jpg",
-                //};
+                if (SelectedCity.Name == "Київ")
+                {
+                    list.Add(new TaskItem()
+                    {
+                        Title = "Будинок з химерами",
+                        LogoUrl = "http://bm.img.com.ua/berlin/storage/news/orig/7/e4/b0c8b53f913b6bec26e48ac0d3a28e47.jpg",
+                        About = "Потрібно сфотографуватися з певною заданою фотографією химерою"
+                    }
+                    );
+                    var task1 = new TaskItem()
+                    {
+                        Title = "Майдан Незалежності",
+                        LogoUrl = "https://st2.depositphotos.com/1536490/11132/v/950/depositphotos_111323836-stock-illustration-maidan-nezalezhnosti-kiev.jpg",
+                    };
 
-
+                }
                 // Тут повинний бути список завдань для вибраного міста
 
                 TaskItems = new ObservableCollection<TaskItem>(list);

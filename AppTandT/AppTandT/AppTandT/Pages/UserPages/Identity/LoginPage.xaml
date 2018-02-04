@@ -35,7 +35,7 @@
                 </Grid.RowDefinitions>
                 <Image Source="logo.png"  HeightRequest="100" VerticalOptions="End"/>
                 <Entry Grid.Row="1" Text="{Binding Login}" 
-                            Placeholder="Login"
+                            Placeholder="Email"
                             FontSize ="16"
                             FontFamily ="Verdana"
                             PlaceholderColor="#bababa"/>

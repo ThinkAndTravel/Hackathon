@@ -15,12 +15,7 @@ namespace AppTandT.Pages.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PostViewCell : ViewCell
     {
-        readonly SvgCachedImage heart = null;
-        readonly SvgCachedImage chat = null;
-        readonly SvgCachedImage sent = null;
-        readonly SvgCachedImage bookmark = null;
-        public int h = 0;
-
+      
         public PostViewCell()
         {
             InitializeComponent();
@@ -41,8 +36,7 @@ namespace AppTandT.Pages.Views
             MainImage.Source = item.MainImageUrl;
             LoginView.Text = item.Login;
             AvatarView.Source = item.AvatarUrl;
-            AboutView.Text = item.About;
-          
+        
         }
     
     }
