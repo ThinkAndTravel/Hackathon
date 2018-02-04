@@ -25,37 +25,7 @@ namespace AppTandT.Pages.Views
         {
             InitializeComponent();
 
-            heart = new SvgCachedImage()
-            {
-                HorizontalOptions = LayoutOptions.Start,
-                Source = "resource://AppTandT.Icons.svg.like.svg",
-                HeightRequest = 40,
-            };
-            chat = new SvgCachedImage()
-            {
-                HorizontalOptions = LayoutOptions.Start,
-                Source = "resource://AppTandT.Icons.svg.chat.svg",
-                HeightRequest = 40,
-            };
-            sent = new SvgCachedImage()
-            {
-                HorizontalOptions = LayoutOptions.Start,
-                Source = "resource://TandT_App.Icons.svg.sent.svg",
-                HeightRequest = 40,
-            };
-            bookmark = new SvgCachedImage()
-            {
-                HorizontalOptions = LayoutOptions.EndAndExpand,
-                Source = "resource://TandT_App.Icons.svg.save.svg",
-                HeightRequest = 40,
-            };
-            View.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = new BaseCommand((arg) =>
-                {
-                    System.Diagnostics.Debug.WriteLine("POST TAPPED");
-                })
-            });
+            
         }
 
 
@@ -72,42 +42,7 @@ namespace AppTandT.Pages.Views
             LoginView.Text = item.Login;
             AvatarView.Source = item.AvatarUrl;
             AboutView.Text = item.About;
-            var sh =ImageSource.FromResource( "resource://AppTandT.Icons.svg.like.svg");
-            if (item.h != 0) sh = ImageSource.FromResource("resource://AppTandT.Icons.svg.liked.svg");
-            heart.Source = sh;
-            item.HeartCommand = new BaseCommand((arg) =>
-            {
-                item.h = (item.h + 1) % 2;
-                sh = "resource://TandT_App.Icons.svg.like.svg";
-                if (item.h != 0) sh = "resource://TandT_App.Icons.svg.liked.svg";
-                heart.Source = sh;
-                System.Diagnostics.Debug.WriteLine("Like TAPPED");
-
-            });
-            heart.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = item.HeartCommand
-            });
-
-            SvgIcons.Children.Add(heart);
-
-            chat.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = item.ChatCommand
-            });
-            SvgIcons.Children.Add(chat);
-
-            sent.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = item.SentCommand
-            });
-            SvgIcons.Children.Add(sent);
-
-            bookmark.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = item.SaveCommand
-            });
-            SvgIcons.Children.Add(bookmark);
+          
         }
     
     }

@@ -50,7 +50,22 @@
                      HorizontalOptions="FillAndExpand"
                      Grid.Row="2">
 
-            
+            <ffimageloading:CachedImage                                
+                Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2S7NTMNLH8U0krCDKZZjcoIRMMMW8F-pZs68c_Hs7F-zdy7SC"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center"
+                                    DownsampleToViewSize="true"
+                                    Aspect="AspectFill"
+                                    HeightRequest="40">
+            </ffimageloading:CachedImage>
+            <ffimageloading:CachedImage                                
+                Source="https://d30y9cdsu7xlg0.cloudfront.net/png/24079-200.png"
+                HorizontalOptions="End"
+                                    VerticalOptions="Center"
+                                    DownsampleToViewSize="true"
+                                    Aspect="AspectFill"
+                                    HeightRequest="40">
+            </ffimageloading:CachedImage>
         </StackLayout>
 
         <Label x:Name="AboutView" Grid.Row="3" TextColor="Black" Margin="10,0,10,0"/>
