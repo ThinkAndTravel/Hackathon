@@ -338,43 +338,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Icons\svg\005-camera.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <Content Include="Icons\svg\006-rounded-add-button.svg" />
-    <Content Include="Icons\svg\007-close-button.svg" />
-    <Content Include="Icons\svg\008-check-box.svg" />
-    <Content Include="Icons\svg\009-send-button.svg" />
-    <Content Include="Icons\svg\010-twitter-logo-on-black-background.svg" />
-    <Content Include="Icons\svg\011-facebook-logo.svg" />
-    <Content Include="Icons\svg\012-favorite-heart-button.svg" />
-    <Content Include="Icons\svg\013-instagram-logo.svg" />
-    <Content Include="Icons\svg\014-placeholder.svg" />
-    <Content Include="Icons\svg\015-user-1.svg" />
-    <Content Include="Icons\svg\016-user.svg" />
-    <Content Include="Icons\svg\017-menu.svg" />
-    <Content Include="Icons\svg\019-plus.svg" />
-    <Content Include="Icons\svg\020-star.svg" />
-    <Content Include="Icons\svg\022-edit.svg" />
-    <Content Include="Icons\svg\023-list.svg" />
-    <Content Include="Icons\svg\024-photo-camera.svg" />
-    <Content Include="Icons\svg\026-like.svg" />
-    <Content Include="Icons\svg\027-heart.svg" />
-    <Content Include="Icons\svg\chat.svg" />
-    <EmbeddedResource Include="Icons\svg\like.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <Content Include="Icons\svg\liked.svg" />
-    <EmbeddedResource Include="Icons\svg\save.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Icons\svg\sent.svg" />
-    <EmbeddedResource Include="Icons\svg\star1.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Icons\svg\star2.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <Content Include="Icons\001-favorite-1.png" />
+    <Content Include="Icons\002-favorite.png" />
+    <Content Include="Icons\003-camera.png" />
+    <Content Include="Icons\004-rounded-add-button.png" />
+    <Content Include="Icons\005-check-box.png" />
+    <Content Include="Icons\006-send-button.png" />
+    <Content Include="Icons\007-twitter-logo-on-black-background.png" />
+    <Content Include="Icons\008-photo-camera.png" />
+    <Content Include="Icons\009-speech-bubble.png" />
+    <Content Include="Icons\010-like.png" />
+    <Content Include="Icons\011-heart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
