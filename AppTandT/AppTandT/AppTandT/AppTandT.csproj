@@ -129,11 +129,20 @@
       <DependentUpon>TaskViewCell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -329,7 +338,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icons\svg\005-camera.svg" />
+    <EmbeddedResource Include="Icons\svg\005-camera.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Icons\svg\006-rounded-add-button.svg" />
     <Content Include="Icons\svg\007-close-button.svg" />
     <Content Include="Icons\svg\008-check-box.svg" />
@@ -350,12 +361,20 @@
     <Content Include="Icons\svg\026-like.svg" />
     <Content Include="Icons\svg\027-heart.svg" />
     <Content Include="Icons\svg\chat.svg" />
-    <AdditionalFiles Include="Icons\svg\like.svg" />
+    <EmbeddedResource Include="Icons\svg\like.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Icons\svg\liked.svg" />
-    <Content Include="Icons\svg\save.svg" />
-    <Content Include="Icons\svg\sent.svg" />
-    <Content Include="Icons\svg\star1.svg" />
-    <Content Include="Icons\svg\star2.svg" />
+    <EmbeddedResource Include="Icons\svg\save.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\svg\sent.svg" />
+    <EmbeddedResource Include="Icons\svg\star1.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\svg\star2.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

@@ -50,16 +50,7 @@
                      HorizontalOptions="FillAndExpand"
                      Grid.Row="2">
 
-            <!--
-            <ffimageloadingsvg:SvgCachedImage Aspect="AspectFill" HeightRequest="40"
-            WidthRequest="40" Source="resource://AppTandT.Icons.svg.like.svg"
-            DownsampleToViewSize="true" HorizontalOptions="Center"
-            VerticalOptions="Start" x:Name="ProfileImage">
-                <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnCanvasViewTapped" />
-                </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
-            </ffimageloadingsvg:SvgCachedImage>-->
-
+            
         </StackLayout>
 
         <Label x:Name="AboutView" Grid.Row="3" TextColor="Black" Margin="10,0,10,0"/>
