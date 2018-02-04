@@ -113,7 +113,7 @@ namespace BLL.userLogic.extension
                 view.Title = task.Main.Title;
                 for (int q = 1; q < 6; q++)
                 {
-                    view.Ranks[q] = task.Ranks[q].Count;
+                    view.Ranks[q] = 5;
                 }
                 list.Add(view);
 

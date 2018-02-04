@@ -6,12 +6,14 @@ using Amazon.S3;
 using Amazon.S3.Transfer;
 using System.Linq;
 using Amazon.Runtime;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
 
 namespace BLL
 {
     public class S3Manager
     {
-        public bool sendMyFileToS3( string fileNameInS3)
+        public bool sendMyFileToS3(string fileNameInS3)
         {
             // input explained :
             // localFilePath = the full local file path e.g. "c:\mydir\mysubdir\myfilename.zip"
@@ -25,15 +27,16 @@ namespace BLL
             var client = new AmazonS3Client(credentials, config);
             TransferUtility utility = new TransferUtility(client);
             TransferUtilityUploadRequest request = new TransferUtilityUploadRequest();
-            request.BucketName = bucketName;         
+            request.BucketName = bucketName;
             request.Key = fileNameInS3; //file name up in S3
-           // request.InputStream();
+                                        // request.InputStream();
             request.CannedACL = S3CannedACL.PublicRead;
             utility.Upload(request); //commensing the transfer
-            
+
             return true; //indicate that the file was sent
         }
 
+       
 
     }
 }
