@@ -1,4 +1,6 @@
-﻿using AppTandT.BLL.Services;
+﻿using Acr.UserDialogs;
+using AppTandT.BLL.Help;
+using AppTandT.BLL.Services;
 using AppTandT.Pages.Menu;
 using System;
 using System.Collections.Generic;
@@ -25,7 +27,7 @@ namespace AppTandT.Pages.TaskPages
             var city0 = new CityItem()
             {
                 Name = "Unit City",
-                LogoUrl = "http://api2.withmyfriends.org/media/events/2017/08/1502381279-UNIT_LOGO.jpg"
+                LogoUrl = "https://apply.unit.ua/assets/img/logo.png?v043"
             };
             var city1 = new CityItem()
             {
@@ -38,7 +40,7 @@ namespace AppTandT.Pages.TaskPages
                 LogoUrl = "http://c7.alamy.com/comp/F0MN43/paris-vector-logo-design-template-eiffel-tower-drawn-in-a-simple-sketch-F0MN43.jpg"
             };
             var city3 = new CityItem()
-            {
+            {   
                 Name = "London",
                 LogoUrl = "http://www.richardalanmoore.com/wp-content/uploads/2009/01/london_logo_black.gif"
             };
@@ -72,6 +74,14 @@ namespace AppTandT.Pages.TaskPages
             list.Add(city7);
 
             CityItems = new ObservableCollection<CityItem>(list);
+            var tasks = new List<TaskItem>();
+            tasks.Add(new TaskItem()
+            {
+                Title ="",
+                LogoUrl= "https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519660-164_QuestionMark-256.png",
+                About = "Виберіть місто "
+            });
+            TaskItems = new ObservableCollection<TaskItem>(tasks);
             CitySelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>(async(arg) => 
             {
                 await Reload();
@@ -89,7 +99,6 @@ namespace AppTandT.Pages.TaskPages
                 SelectedTask = null;
             });
 
-
         }
 
         public CityItem SelectedCity { get; set; }
@@ -103,95 +112,56 @@ namespace AppTandT.Pages.TaskPages
 
         public async Task Reload()
         {
-            var list = new List<TaskItem>();
+            try
+            {
+                var list = new List<TaskItem>();
+                var selectedCity = SelectedCity;
+                if (SelectedCity == null)
+                    selectedCity = CityItems.First<CityItem>();
+                // тут повинна бути загрузка списку завдань
+                var downloadTasks = await TaskService.GetTasksForCityAsync("u1:1", "City");
+                foreach (var cur in downloadTasks)
+                {
+                    list.Add(
+                        new TaskItem()
+                        {
+                            Title = cur.Title,
+                            About = cur.About,
+                        });
+                }
+                //list.Add(new TaskItem()
+                //{
+                //    Title = "Будинок з химерами",
+                //    LogoUrl = "http://bm.img.com.ua/berlin/storage/news/orig/7/e4/b0c8b53f913b6bec26e48ac0d3a28e47.jpg",
+                //    About = "Cпоруда з прикрасами міфологічних та мисливських сюжетів, є головною архітектурною спорудою раннього декоративного стилю модерн міста Києва, столиці України. Свою назву отримала завдяки скульптурним прикрасам, тематика яких — тваринний наземний та підводний світи, атрибути полювання, казкові істоти"
+                //}
+                //    );
+                //var task1 = new TaskItem()
+                //{
+                //    Title = "Майдан Незалежності",
+                //    LogoUrl = "https://st2.depositphotos.com/1536490/11132/v/950/depositphotos_111323836-stock-illustration-maidan-nezalezhnosti-kiev.jpg",
+                //};
 
-            var selectedCity = SelectedCity;
-            if (SelectedCity == null)
-                selectedCity = CityItems.First<CityItem>();
 
-            // тут повинна бути загрузка списку завдань
-            var downloadTasks = await TaskService.GetTasksForCityAsync("u1:1", "City");
-            foreach (var cur in downloadTasks)
-            {
-                list.Add(
-                    new TaskItem()
-                    {
-                        Title = cur.Title,
-                        About = cur.About,
-                    });
-            }
-            //list.Add(new TaskItem()
-            //{
-            //    Title = "Будинок з химерами",
-            //    LogoUrl = "http://bm.img.com.ua/berlin/storage/news/orig/7/e4/b0c8b53f913b6bec26e48ac0d3a28e47.jpg",
-            //    About = "Cпоруда з прикрасами міфологічних та мисливських сюжетів, є головною архітектурною спорудою раннього декоративного стилю модерн міста Києва, столиці України. Свою назву отримала завдяки скульптурним прикрасам, тематика яких — тваринний наземний та підводний світи, атрибути полювання, казкові істоти"
-            //}
-            //    );
-            //var task1 = new TaskItem()
-            //{
-            //    Title = "Майдан Незалежності",
-            //    LogoUrl = "https://st2.depositphotos.com/1536490/11132/v/950/depositphotos_111323836-stock-illustration-maidan-nezalezhnosti-kiev.jpg",
-            //};
-            list.Add(new TaskItem()
-            {
-                Title = "",
-                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
-                About = "Виберіть місто "
-            }
-            );
-            list.Add(new TaskItem()
-            {
-                Title = "",
-                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
-                About = "Виберіть місто "
-            }
-            );
-            list.Add(new TaskItem()
-            {
-                Title = "",
-                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
-                About = "Виберіть місто "
-            }
-            );
-            list.Add(new TaskItem()
-            {
-                Title = "",
-                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
-                About = "Виберіть місто "
-            }
-            );
-            list.Add(new TaskItem()
-            {
-                Title = "",
-                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
-                About = "Виберіть місто "
-            }
-            );
-            list.Add(new TaskItem()
-            {
-                Title = "",
-                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
-                About = "Виберіть місто "
-            }
-            );
-            list.Add(new TaskItem()
-            {
-                Title = "",
-                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
-                About = "Виберіть місто "
-            }
-            );
-            list.Add(new TaskItem()
-            {
-                Title = "",
-                LogoUrl = "http://mikecavaliere.com/wp-content/uploads/2015/05/Question-300x300.png",
-                About = "Виберіть місто "
-            }
-            );
-            // Тут повинний бути список завдань для вибраного міста
+                // Тут повинний бути список завдань для вибраного міста
 
-            TaskItems = new ObservableCollection<TaskItem>(list);
-            OnPropertyChanged("TaskItems");
+                TaskItems = new ObservableCollection<TaskItem>(list);
+                OnPropertyChanged("TaskItems");
+            }
+            catch (ServiceException e)
+            {
+                var conf = new AlertConfig
+                {
+                    Message = e.Message,
+                    Title = e.Title,
+                    OkText = e.OkText
+                };
+                await UserDialogs.Instance.AlertAsync(conf);
+            }
+            catch
+            {
+                await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
+            }
         }
     }
 
