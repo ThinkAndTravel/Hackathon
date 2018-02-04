@@ -36,19 +36,18 @@
 				    DownsampleToViewSize="true"
                     Grid.Column="0"
 					Aspect="AspectFit"
-                    HeightRequest="200"
-                    WidthRequest="200">
+                    HeightRequest="50"
+                    WidthRequest="50">
                     <ffimageloading:CachedImage.Transformations>
                         <fftransformations:CircleTransformation/>
                     </ffimageloading:CachedImage.Transformations>
                 </ffimageloading:CachedImage>
-            <Label x:Name="Title"
+                <Label x:Name="Title"
                    Margin="10,0,10,0"
                    FontSize="Medium"
                    Grid.Column="1"
                    VerticalOptions="CenterAndExpand"
                    TextColor="Black" />
-                <Button x:Name="takePhoto"/>
             </Grid>
         <StackLayout>
             <Label x:Name="About"          
@@ -56,6 +55,9 @@
                VerticalOptions="Start"
                TextColor="Black" />
             </StackLayout>
+            <Button x:Name="takePhoto"/>
+            <ffimageloading:CachedImage x:Name="TakenPhoto"/>
+            <Button x:Name="sendPhoto" Text="Send photo"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
