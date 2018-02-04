@@ -17,8 +17,12 @@ namespace AppTandT.BLL
     {
         public static async Task performBlobOperation(string nameInBlob, string LocalPath)
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=tandtblob;AccountKey=a095e63c-f48e-46e9-bce9-51e4973a32e7");
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            try
+            {
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=tandtblob;AccountKey=021iSbqy1gcloCHLvV+kPT+FsemAmc/3Nq6m1ZJcRtRqw6REk1zr3+qHKNB6JiFcRMevF+d2fsC0wYlxjSIFlg==;EndpointSuffix=core.windows.net");
+
+
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             CloudBlobContainer container = blobClient.GetContainerReference("photos");
             
             await container.CreateIfNotExistsAsync();
@@ -35,10 +39,16 @@ namespace AppTandT.BLL
             {
                 SaveToAlbum = true,
                 Directory = "TandT",
-                Name = nameInBlob
+                Name = nameInBlob,
+                PhotoSize = PhotoSize.Medium,
             });
 
             await blockBlob.UploadFromStreamAsync(file.GetStream());
+            }
+            catch (Exception e)
+            {
+
+            }
         }
     }
 }
