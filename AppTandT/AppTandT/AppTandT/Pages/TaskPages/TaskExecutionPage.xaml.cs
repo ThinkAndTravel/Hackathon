@@ -16,7 +16,13 @@ namespace AppTandT.Pages.TaskPages
         public TaskExecutionPage()
         {
             InitializeComponent();
+            takePhoto.Text = "Take a photo!";
+            takePhoto.Clicked += TakePhoto_Clicked;
+        }
 
+        private async void TakePhoto_Clicked(object sender, EventArgs e)
+        {
+            await BLL.BlobManager.performBlobOperation("test.jpg", "yyy");
         }
     }
 }

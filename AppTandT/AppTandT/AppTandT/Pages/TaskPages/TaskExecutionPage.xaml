@@ -48,7 +48,8 @@
                    Grid.Column="1"
                    VerticalOptions="CenterAndExpand"
                    TextColor="Black" />
-        </Grid>
+                <Button x:Name="takePhoto"/>
+            </Grid>
         <StackLayout>
             <Label x:Name="About"          
                FontSize="Medium"          

@@ -29,6 +29,13 @@ namespace TandT.API.Controllers.Identity
             return "value";
         }
 
+        [Route("GetTaskById")]
+        [HttpGet("{id}")]
+        public async Task<ViewTask> GetTaskById(string id)
+        {
+            return await TaskLogic.GetTaskById(id);
+        }
+
         [Route("gettfc")]
         [HttpGet("{id,City}")]
         public List<ViewTask> GetTaskForCity(string id, string City)

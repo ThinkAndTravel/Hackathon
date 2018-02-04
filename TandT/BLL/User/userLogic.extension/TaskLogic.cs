@@ -6,11 +6,40 @@ using MongoManager.Context;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BLL.userLogic.extension
 {
     public class TaskLogic
     {
+        public static async Task<ViewTask> GetTaskById(string id)
+        {
+            foreach (var collection in DbSet<MongoManager.CollectionModels.Task>.collections)
+            {
+                var c = await collection.Value
+                    .Find(x => x._id == id).CountAsync();
+                    
+                if(c > 0)
+                {
+                    var task = await  collection.Value
+                    .Find(x => x._id == id).FirstAsync();
+                    ViewTask view = new ViewTask();
+                    view.About = task.Main.About;
+                    view.Comments = task.Comments;
+                    view.PicturesAbout = task.Main.PicturesAbout;
+                    view.Tags = task.Main.Tags;
+                    view._id = task._id;
+                    view.Title = task.Main.Title;
+                    for (int i = 1; i < 6; i++)
+                    {
+                        view.Ranks[i] = 5;// task.Ranks[i].Count;
+                    }
+                    return view;
+                }
+            }
+            return null;
+        }
+
         /// <summary>
         /// 2 - користувач пройшов це завдання
         /// 3 - завдання не з цієї локації
@@ -104,7 +133,7 @@ namespace BLL.userLogic.extension
             for (int i = k * 10; i < (k + 1) * 10 && i < tasks.Length; i++)
             {
                 ViewTask view = new ViewTask();
-                Task task = DataManager.Tasks.ReadFull(tasks[i]);
+                MongoManager.CollectionModels.Task task = DataManager.Tasks.ReadFull(tasks[i]);
                 view.About = task.Main.About;
                 view.Comments = task.Comments;
                 view.PicturesAbout = task.Main.PicturesAbout;
