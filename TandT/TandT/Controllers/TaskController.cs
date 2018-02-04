@@ -94,5 +94,13 @@ namespace TandT.API.Controllers.Identity
             }
         }
 
+        [Route("gettaskinfo")]
+        [HttpGet("{taskid}")]
+        public ViewTask GetTaskInfo( string taskId)
+        {
+            return null;// TaskLogic.CheckTask(id, taskId, City);
+        }
+
+
     }
 }

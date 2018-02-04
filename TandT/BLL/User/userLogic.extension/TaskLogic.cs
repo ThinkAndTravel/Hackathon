@@ -88,12 +88,14 @@ namespace BLL.userLogic.extension
             DataManager.Tasks.AddRankss(TaskId, UserId, k);
 
         }
+
         public static void AddTaskToActive(string UserId, string TaskId)
         {
             string[] a = new string[1];
             a[0] = TaskId;
             DataManager.Users.AddActiveTasks(UserId,a);
         }
+
         public static List<ViewTask> GetNextTenActiveTask(string UserId, int k)
         {
             List<ViewTask> list = new List<ViewTask>();
@@ -117,6 +119,14 @@ namespace BLL.userLogic.extension
 
             }
             return list;
+        }
+
+        /// <summary>
+        /// Повертає список запитань даного завдання 
+        /// </summary>
+        public static List<Question> GetTaskQuestions(string TaskId)
+        {
+            return null;
         }
     }
 }
