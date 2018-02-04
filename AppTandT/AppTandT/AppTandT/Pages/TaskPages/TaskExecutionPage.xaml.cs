@@ -66,6 +66,8 @@ namespace AppTandT.Pages.TaskPages
 
             TakenPhoto.Source = file.AlbumPath;
             sendPhoto.IsVisible = true;
+
+            stream = file.GetStream();
             //   await BLL.BlobManager.performBlobOperation("test.jpg", "yyy");
         }
     }

@@ -24,7 +24,7 @@ namespace AppTandT.BLL
             CloudBlobContainer container = blobClient.GetContainerReference("photos");
             
             await container.CreateIfNotExistsAsync();
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference("photka");
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference("photka" + DateTime.Now.Ticks);
 
             await blockBlob.UploadFromStreamAsync(stream);
         }
