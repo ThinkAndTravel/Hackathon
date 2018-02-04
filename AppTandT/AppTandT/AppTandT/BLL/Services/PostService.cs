@@ -14,6 +14,20 @@ namespace AppTandT.BLL.Services
 {
     public class PostService : ClientService
     {
+        public static async Task<List<PostViewModel>> GetNewsAsync()
+        {
+            var client = GetClient();
+            var url = App.ApiUri + "api/post/getnews";
+            var response = /*await*/ client.GetAsync(url).Result;
+
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
+
+            var str = await response.Content.ReadAsStringAsync();
+            var arr = JsonConvert.DeserializeObject<List<PostViewModel>>(str);
+            return arr ;
+        }
+
         public static async Task<List<PostViewModel>> GetPostsPageAsync(string id, int page = 0)
         {
             var client = GetClient();
@@ -27,7 +41,6 @@ namespace AppTandT.BLL.Services
             var arr = JsonConvert.DeserializeObject<List<PostViewModel>>(str);
             return arr;
         }
-
 
         public static async Task<bool> AddPostAsync(Post post)
         {

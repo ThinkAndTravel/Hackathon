@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Xamvvm;
 using AppTandT.BLL.Model.ViewModels;
 using AppTandT.BLL;
+using System.Net.Http;
 
 namespace AppTandT.Pages.UserPages
 {
@@ -19,13 +20,13 @@ namespace AppTandT.Pages.UserPages
     {
         //   public ObservableCollection<PostItem> Items { get; set; }
 
-        public NewsPageModel()
+        public  NewsPageModel()
         {
             PostSelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>((arg) =>
             {
                 SelectedPost = null;
             });
-            Reload();
+            Reload().GetAwaiter().GetResult();
         }
         public PostItem SelectedPost { get; set; }
         public ICommand PostSelectedCommand { get; set; }
@@ -37,10 +38,20 @@ namespace AppTandT.Pages.UserPages
             if (Items == null)
                 Items = new ObservableCollection<PostItem>();
 
-                var list = await BLL.Services.PostService.GetPostsPageAsync(Sesion._id);
+            //HttpClient client = new HttpClient();
+            //client.Timeout = System.TimeSpan.FromMilliseconds(11111);
+            
+            //client.DefaultRequestHeaders.Add("Accept", "application/json");
+            //var r = client.GetAsync(new Uri(@"http://tandt20180203091155.azurewebsites.net/api/post/getnews/")).Result;
 
-                foreach (var cur in list)
-                 Items.Add(new PostItem (cur));
+            var list = BLL.Services.PostService.GetNewsAsync().Result;
+
+            foreach (var cur in list)
+                Items.Add(new PostItem (cur));
         }
+
+
     }
+
+
 }

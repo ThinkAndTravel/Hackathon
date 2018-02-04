@@ -28,13 +28,13 @@ namespace AppTandT.Pages.Views
             heart = new SvgCachedImage()
             {
                 HorizontalOptions = LayoutOptions.Start,
-                Source = "resource://TandT_App.Icons.svg.like.svg",
+                Source = "resource://AppTandT.Icons.svg.like.svg",
                 HeightRequest = 40,
             };
             chat = new SvgCachedImage()
             {
                 HorizontalOptions = LayoutOptions.Start,
-                Source = "resource://TandT_App.Icons.svg.chat.svg",
+                Source = "resource://AppTandT.Icons.svg.chat.svg",
                 HeightRequest = 40,
             };
             sent = new SvgCachedImage()
@@ -72,14 +72,14 @@ namespace AppTandT.Pages.Views
             LoginView.Text = item.Login;
             AvatarView.Source = item.AvatarUrl;
             AboutView.Text = item.About;
-            var sh = "resource://TandT_App.Icons.svg.like.svg";
-            if (item.h != 0) sh = "resource://TandT_App.Icons.svg.liked.svg";
+            var sh = "resource://AppTandT.Icons.svg.like.svg";
+            if (item.h != 0) sh = "resource://AppTandT.Icons.svg.liked.svg";
             heart.Source = sh;
             item.HeartCommand = new BaseCommand((arg) =>
             {
                 item.h = (item.h + 1) % 2;
-                sh = "resource://TandT_App.Icons.svg.like.svg";
-                if (item.h != 0) sh = "resource://TandT_App.Icons.svg.liked.svg";
+                sh = "resource://AppTandT.Icons.svg.like.svg";
+                if (item.h != 0) sh = "resource://AppTandT.Icons.svg.liked.svg";
                 heart.Source = sh;
                 System.Diagnostics.Debug.WriteLine("Like TAPPED");
 
