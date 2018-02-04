@@ -328,6 +328,35 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\svg\005-camera.svg" />
+    <Content Include="Icons\svg\006-rounded-add-button.svg" />
+    <Content Include="Icons\svg\007-close-button.svg" />
+    <Content Include="Icons\svg\008-check-box.svg" />
+    <Content Include="Icons\svg\009-send-button.svg" />
+    <Content Include="Icons\svg\010-twitter-logo-on-black-background.svg" />
+    <Content Include="Icons\svg\011-facebook-logo.svg" />
+    <Content Include="Icons\svg\012-favorite-heart-button.svg" />
+    <Content Include="Icons\svg\013-instagram-logo.svg" />
+    <Content Include="Icons\svg\014-placeholder.svg" />
+    <Content Include="Icons\svg\015-user-1.svg" />
+    <Content Include="Icons\svg\016-user.svg" />
+    <Content Include="Icons\svg\017-menu.svg" />
+    <Content Include="Icons\svg\019-plus.svg" />
+    <Content Include="Icons\svg\020-star.svg" />
+    <Content Include="Icons\svg\022-edit.svg" />
+    <Content Include="Icons\svg\023-list.svg" />
+    <Content Include="Icons\svg\024-photo-camera.svg" />
+    <Content Include="Icons\svg\026-like.svg" />
+    <Content Include="Icons\svg\027-heart.svg" />
+    <Content Include="Icons\svg\chat.svg" />
+    <AdditionalFiles Include="Icons\svg\like.svg" />
+    <Content Include="Icons\svg\liked.svg" />
+    <Content Include="Icons\svg\save.svg" />
+    <Content Include="Icons\svg\sent.svg" />
+    <Content Include="Icons\svg\star1.svg" />
+    <Content Include="Icons\svg\star2.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.122203\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

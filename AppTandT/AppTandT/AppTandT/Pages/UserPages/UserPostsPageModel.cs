@@ -83,7 +83,8 @@ namespace AppTandT.Pages.UserPages
                 AvatarUrl = m.UserAvatar;
                 id = m.id;
                 Photo = m.Photo;
-                MainImageUrl = Photo[0] ?? "";
+                //MainImageUrl =  (Photo == null ? "" : Photo[0] ?? "");
+                MainImageUrl = m.URLphoto == null ? "" : (m.URLphoto[0] ?? "");
                 About = "";
                 UserId = m.UserId;
                 LikeSum = m.CountLikes;
