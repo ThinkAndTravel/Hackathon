@@ -16,7 +16,7 @@ namespace AppTandT.BLL
 {
     public class BlobManager
     {
-        public static async Task performBlobOperation(Stream stream)
+        public static async Task<int> performBlobOperation(Stream stream)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=tandtblob;AccountKey=021iSbqy1gcloCHLvV+kPT+FsemAmc/3Nq6m1ZJcRtRqw6REk1zr3+qHKNB6JiFcRMevF+d2fsC0wYlxjSIFlg==;EndpointSuffix=core.windows.net");
 
@@ -29,6 +29,15 @@ namespace AppTandT.BLL
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(name);
 
             await blockBlob.UploadFromStreamAsync(stream);
+            string photoid = await BLL.Services.PostService.AddPhotoAsync(
+                        new Photo()
+                        {
+                            _id = "",
+                            URL = @"https://tandtblob.blob.core.windows.net/photos/" + name,
+                        }
+
+                        );
+            photoid = photoid.Substring(1, photoid.Length - 2);
             Post post = new Post()
             {
                 About = "New post",
@@ -36,18 +45,12 @@ namespace AppTandT.BLL
                 {
                     DatePost = DateTime.Now,
                     UserId = Sesion._id,
-                    Photos = new List<string>() { BLL.Services.PostService.AddPhotoAsync(
-                        new Photo()
-                        {
-                            _id = "",
-                            URL = @"https://tandtblob.blob.core.windows.net/photos/" + name,
-                        }
-                        
-                        ).Result},
+                    Photos = new List<string>() { photoid },
                 },
             };
 
             await BLL.Services.PostService.AddPostAsync(post);
+            return 0;
         }
     }
 }
