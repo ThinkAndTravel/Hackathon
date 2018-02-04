@@ -7,6 +7,7 @@ using MongoManager.CollectionModels;
 using MongoManager.Context;
 using BLL.User.ViewModel;
 using MongoManager.CollectionModels.HelpCollectionModels;
+using System.Threading.Tasks;
 
 namespace BLL.userLogic.extension
 {
@@ -27,6 +28,33 @@ namespace BLL.userLogic.extension
             DataManager.Users.DeletePosts(DataManager.Posts.ReadMain(id).UserId, list.ToArray());
             DataManager.Posts.Delete(id);
         }
+
+        public static async Task<List<ViewPost>> GetAllPosts()
+        {
+            List<ViewPost> list = new List<ViewPost>();
+            var e = await DataManager.Posts.ReadAllPostsAsync();
+            foreach(var post in e)
+            {
+                ViewPost view = new ViewPost();
+                view.UserId = post.Main.UserId;
+                view.id = post._id;
+                if (post.PostComments.Count == 0) view.Comment = false; else view.Comment = true;
+                view.CountLikes = post.Likes.Count;
+                view.DateCreated = post.Main.DatePost.Value;
+                view.About = post.About;
+                List<string> url = new List<string>();
+                foreach (var c in post.Main.Photos)
+                {
+                    url.Add(DataManager.Photos.ReadFull(c).URL);
+                }
+                view.URLPhoto = url;
+                view.UserAvatar = DataManager.Users.ReadMain(view.UserId).Avatar;
+                list.Add(view);
+            }
+
+            return list;
+        }
+
         public static List<ViewPost> GetNextTenPost(string UserId, int k)
         {
             List<ViewPost> list = new List<ViewPost>();

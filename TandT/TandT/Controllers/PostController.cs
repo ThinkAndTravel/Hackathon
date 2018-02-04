@@ -32,6 +32,13 @@ namespace TandT.API.Controllers.Identity
             return "value";
         }
 
+        [Route("GetNews")]
+        [HttpGet]
+        public async Task<List<ViewPost>> GetNews()
+        {
+            return await PostLogic.GetAllPosts();
+        }
+
         [Route("getposts")]
         [HttpGet("{id,k}")]
         public List<ViewPost> GetPost(string id, int k)

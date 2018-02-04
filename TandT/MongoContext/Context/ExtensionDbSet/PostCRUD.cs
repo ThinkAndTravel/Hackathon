@@ -48,6 +48,24 @@ namespace MongoManager.Context
 
         #region READ
         /// <summary>
+        /// Returns all posts
+        /// </summary>
+        /// <param name="dbSet"></param>
+        /// <returns></returns>
+        public static async Task<List<Post>> ReadAllPostsAsync(this DbSet<Post> dbSet)
+        {
+            List<String> dbs = new List<string> {"p1", "p2", "p3", "p4" };
+            var filter = new BsonDocument();
+            List<Post> total = new List<Post>();
+            foreach (var db in dbs)
+            {
+                var list = await DbSet<Post>.collections[db].Find(filter).ToListAsync();
+                total.AddRange(list);
+            }
+            return total;
+        }
+
+        /// <summary>
         /// Зчитує з словника колекцій лише головну частину документа за таким id 
         /// </summary>
         public static async Task<MainPost> ReadMainAsync(this DbSet<Post> dbSet, string id)
