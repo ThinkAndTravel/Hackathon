@@ -86,6 +86,7 @@
     <Compile Include="Pages\PlanPages\AddPlanPage.xaml.cs">
       <DependentUpon>AddPlanPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PlanPages\AddPlanPageModel.cs" />
     <Compile Include="Pages\PlanPages\PlansPage.xaml.cs">
       <DependentUpon>PlansPage.xaml</DependentUpon>
     </Compile>
