@@ -77,7 +77,6 @@ namespace MongoManager.CollectionModels
         public List<Plan> Plans { get; set; } = new List<Plan>();
     
         #endregion
-
         
     }
 }
