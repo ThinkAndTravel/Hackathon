@@ -7,6 +7,11 @@ using MongoManager;
 using MongoManager.CollectionModels;
 using BLL.User.ViewModel;
 using BLL.userLogic.extension;
+///
+using MongoManager;
+using MongoManager.CollectionModels;
+using MongoManager.Context;
+/// 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -37,6 +42,15 @@ namespace TandT.API.Controllers.Identity
         public async Task<List<ViewPost>> GetNews()
         {
             return await PostLogic.GetAllPosts();
+        }
+
+        [Route("addphoto")]
+        [HttpPost]
+        public async Task<string> AddPhoto([FromBody] Photo photo)
+        {
+            photo._id = "" + DateTime.Now.Ticks;
+            MongoManager.DataManager.Photos.Create(photo);
+            return photo._id;
         }
 
         [Route("getposts")]

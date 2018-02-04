@@ -14,8 +14,11 @@ namespace BLL.userLogic.extension
     public static class PostLogic
     {
 
+
+
         public static void AddPost(string id, Post post)
         {
+            
             DataManager.Posts.Create(ref post);
             string[] arr = new string[1];
             arr[0] = post._id;

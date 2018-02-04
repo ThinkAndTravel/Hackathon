@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.Storage;
+﻿using AppTandT.BLL.Model.CollectionModels;
+using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -24,9 +25,29 @@ namespace AppTandT.BLL
             CloudBlobContainer container = blobClient.GetContainerReference("photos");
             
             await container.CreateIfNotExistsAsync();
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference("photka" + DateTime.Now.Ticks);
+            string name = "photka" + DateTime.Now.Ticks + ".jpg";
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(name);
 
             await blockBlob.UploadFromStreamAsync(stream);
+            Post post = new Post()
+            {
+                About = "New post",
+                Main = new Model.CollectionModels.MainCollectionModels.MainPost()
+                {
+                    DatePost = DateTime.Now,
+                    UserId = Sesion._id,
+                    Photos = new List<string>() { BLL.Services.PostService.AddPhotoAsync(
+                        new Photo()
+                        {
+                            _id = "",
+                            URL = @"https://tandtblob.blob.core.windows.net/photos/" + name,
+                        }
+                        
+                        ).Result},
+                },
+            };
+
+            await BLL.Services.PostService.AddPostAsync(post);
         }
     }
 }

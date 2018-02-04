@@ -9,7 +9,9 @@ namespace AppTandT.BLL.Model.CollectionModels
 {
     public class Photo
     {
-        public string CloudID { get; set; }
+        public string _id { get; set; }
+
+        public string URL { get; set; }
 
         public List<string> Likes { get; set; } = new List<string>();
 
