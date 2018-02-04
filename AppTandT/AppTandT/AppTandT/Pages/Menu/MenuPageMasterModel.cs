@@ -122,7 +122,12 @@ namespace AppTandT.Pages.Menu
                     Command = new BaseCommand(async (param) =>
                     {
                         try{
-                            throw new ServiceException("News. This will be implemented in the future!");
+                            var page = this.GetPageFromCache<NewsPageModel>();
+                            var masterDetailPage =
+                                this.GetPageFromCache<MainMasterDetailPageModel>();
+                           masterDetailPage.GetPageModel().SetDetail(page);
+
+                         //   throw new ServiceException("News. This will be implemented in the future!");
                         }catch (ServiceException e)
                         {
                             var conf = new AlertConfig
@@ -133,7 +138,7 @@ namespace AppTandT.Pages.Menu
                             };
                             await UserDialogs.Instance.AlertAsync(conf);
                         }
-                        catch
+                        catch (Exception e)
                         {
                             await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
                         }
@@ -173,8 +178,9 @@ namespace AppTandT.Pages.Menu
                             var masterDetailPage =
                                 this.GetPageFromCache<MainMasterDetailPageModel>();
                             masterDetailPage.GetPageModel().SetDetail(page);
-                            throw new ServiceException("Plans. This will be implemented in the future!");
-                        }catch (ServiceException e)
+                          //  throw new ServiceException("Plans. This will be implemented in the future!");
+                        }
+                        catch (ServiceException e)
                         {
                             var conf = new AlertConfig
                             {
@@ -184,10 +190,7 @@ namespace AppTandT.Pages.Menu
                             };
                             await UserDialogs.Instance.AlertAsync(conf);
                         }
-                        catch
-                        {
-                            await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
-                        }
+                        
                     }),
                     Icon = "https://i.imgur.com/HWQv38v.png"
                 },

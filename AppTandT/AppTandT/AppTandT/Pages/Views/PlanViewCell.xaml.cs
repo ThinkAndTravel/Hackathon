@@ -23,12 +23,20 @@ namespace AppTandT.Pages.Views
             base.OnBindingContextChanged();
             
            var item = BindingContext as Plan;
-            if (item == null)
-                return;
-            TaskView.Source = item.PlanTask;
-            About.Text = item.About;
-            Time.Text = item.DateStart.ToString() + " - " + item.DateFinish.ToString();
-            WeatherView.Source = item.Weather;
+            if (item.About == "Немає планів")
+            {
+                TaskView.Source = @"https://i.imgur.com/aODFV4q.png";
+                WeatherView.Source = @"https://i.imgur.com/aODFV4q.png";
+                About.Text = "У вас немає планів";
+                Time.Text = null;
+            }
+            else
+            {
+                TaskView.Source = item.PlanTask;
+                About.Text = item.About;
+                Time.Text = item.DateStart.ToString() + " - " + item.DateFinish.ToString();
+                WeatherView.Source = item.Weather;
+            }
 
         }
     }
