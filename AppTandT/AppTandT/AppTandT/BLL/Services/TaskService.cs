@@ -39,6 +39,20 @@ namespace AppTandT.BLL.Services
             return arr;
         }
 
+        public static async Task<TaskViewModel> GetTaskById(string id)
+        {
+            var client = GetClient();
+            var url = App.ApiUri + "api/task/GetTaskById?id=" + id;
+            var response = client.GetAsync(url).Result;
+
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new ServiceException("Can't connect to the server! Try again later.", title: "Ooops");
+
+            var str = await response.Content.ReadAsStringAsync();
+            var arr = JsonConvert.DeserializeObject<TaskViewModel>(str);
+            return arr;
+        }
+
 
         /// <summary>
         /// Returns list of TaskModel
