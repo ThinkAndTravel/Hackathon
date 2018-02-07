@@ -1,4 +1,8 @@
-﻿using Plugin.Media;
+﻿using Acr.UserDialogs;
+using AppTandT.BLL.Help;
+using AppTandT.Pages.Menu;
+using AppTandT.Pages.UserPages;
+using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
@@ -35,6 +39,18 @@ namespace AppTandT.Pages.TaskPages
             if(stream != null)
             {
                 await BLL.BlobManager.performBlobOperation(stream);
+                try
+                {
+                    var page = this.GetPageFromCache<NewsPageModel>();
+                    var masterDetailPage =
+                        this.GetPageFromCache<MainMasterDetailPageModel>();
+                    masterDetailPage.GetPageModel().SetDetail(page);
+                }
+                catch
+                {
+                    await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
+                }
+
             }
         }
 
@@ -46,7 +62,7 @@ namespace AppTandT.Pages.TaskPages
             LogoView.Source = @"https://i.imgur.com/in9OK8m.png";
             About.Text = task.About;
             var loc = await BLL.Geolocator.GetPositionAsync();
-            sendPhoto.IsVisible = false;
+           // sendPhoto.IsVisible = false;
         }
 
         private async void TakePhoto_Clicked(object sender, EventArgs e)
@@ -67,10 +83,10 @@ namespace AppTandT.Pages.TaskPages
             });
 
             TakenPhoto.Source = file.AlbumPath;
-            sendPhoto.IsVisible = true;
+         //   sendPhoto.IsVisible = true;
 
             stream = file.GetStream();
-            await BLL.BlobManager.performBlobOperation(stream);
+            //await BLL.BlobManager.performBlobOperation(stream);
         }
     }
 }

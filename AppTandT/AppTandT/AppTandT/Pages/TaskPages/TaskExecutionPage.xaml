@@ -23,14 +23,15 @@
             </OnPlatform>
         </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout>
-            <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-           
-            <ffimageloading:CachedImage x:Name="LogoView"
+        <ScrollView>
+            <StackLayout>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ffimageloading:CachedImage x:Name="LogoView"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"
 				    DownsampleToViewSize="true"
@@ -38,26 +39,27 @@
 					Aspect="AspectFit"
                     HeightRequest="50"
                     WidthRequest="50">
-                    <ffimageloading:CachedImage.Transformations>
-                        <fftransformations:CircleTransformation/>
-                    </ffimageloading:CachedImage.Transformations>
-                </ffimageloading:CachedImage>
-                <Label x:Name="Title"
+                        <ffimageloading:CachedImage.Transformations>
+                            <fftransformations:CircleTransformation/>
+                        </ffimageloading:CachedImage.Transformations>
+                    </ffimageloading:CachedImage>
+                    <Label x:Name="Title"
                    Margin="10,0,10,0"
                    FontSize="Medium"
                    Grid.Column="1"
                    VerticalOptions="CenterAndExpand"
                    TextColor="Black" />
-            </Grid>
-        <StackLayout>
-            <Label x:Name="About"          
+                </Grid>
+                <Label x:Name="About"          
                FontSize="Medium"          
                VerticalOptions="Start"
                TextColor="Black" />
+                <Button x:Name="takePhoto"/>
+
+                <Button x:Name="sendPhoto" Text="Send photo"/>
+
+                <ffimageloading:CachedImage x:Name="TakenPhoto"/>
             </StackLayout>
-            <Button x:Name="takePhoto"/>
-            <ffimageloading:CachedImage x:Name="TakenPhoto"/>
-            <Button x:Name="sendPhoto" Text="Send photo"/>
-        </StackLayout>
+         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
