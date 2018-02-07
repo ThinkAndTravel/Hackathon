@@ -7,9 +7,13 @@ namespace AppTandT.Pages.TaskPages
     {
         public string taskId { get; set; } = null;
 
-        public TaskExecutionPageModel(string TaskId = "t1:123")
+        public TaskExecutionPageModel()
         {
-            this.taskId = TaskId ?? "t1:123";
+        }
+
+        public void SetTaskId(string taskId = "t1:123")
+        {
+            this.taskId = taskId ?? "t1:123";
         }
     }
 }

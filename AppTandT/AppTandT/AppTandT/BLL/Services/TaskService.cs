@@ -27,6 +27,7 @@ namespace AppTandT.BLL.Services
         {
             var client = GetClient();
             var url = App.ApiUri + "api/task/gettfc?id=" + id + "&city=" + City;
+            var uri = new Uri(url);
             var response = await client.GetAsync(url);
 
 

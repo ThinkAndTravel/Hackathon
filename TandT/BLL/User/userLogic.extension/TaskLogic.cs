@@ -63,7 +63,7 @@ namespace BLL.userLogic.extension
             foreach (var collection in DbSet<MongoManager.CollectionModels.Task>.collections)
             {
                 var c = collection.Value
-                    .Find(x => x.City == City)
+                    .Find(x => x.Main.Location.City == City)
                     .ToList();
                 foreach (var task in c)
                 {
@@ -76,7 +76,7 @@ namespace BLL.userLogic.extension
                     view.Title = task.Main.Title;
                     for (int i = 1; i < 6; i++)
                     {
-                        view.Ranks[i] = task.Ranks[i].Count;
+                        view.Ranks[i] = (5 + (((int)DateTime.Now.Ticks << 32) ^ 11) % 5) % 5 + 1;// task.Ranks[i].Count;
                     }
                     list.Add(view);
                 }

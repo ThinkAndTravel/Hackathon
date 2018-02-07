@@ -84,13 +84,14 @@ namespace AppTandT.Pages.TaskPages
             TaskItems = new ObservableCollection<TaskItem>(tasks);
             CitySelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>(async(arg) => 
             {
+                SelectedCity = (CityItem)arg.SelectedItem;
                 await Reload();
-                SelectedCity = null;
             });
 
             TaskSelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>((arg) =>
             {
-                var pageModel = new TaskExecutionPageModel(SelectedTask.ID);
+                var pageModel = new TaskExecutionPageModel();
+                pageModel.SetTaskId(SelectedCity.Name);
                 var page = this.GetPageFromCache<TaskExecutionPageModel>(pageModel);
                 var masterDetailPage =
                     this.GetPageFromCache<MainMasterDetailPageModel>();
@@ -119,7 +120,7 @@ namespace AppTandT.Pages.TaskPages
                 if (SelectedCity == null)
                     selectedCity = CityItems.First<CityItem>();
                 // тут повинна бути загрузка списку завдань
-                var downloadTasks = await TaskService.GetTasksForCityAsync("u1:1", SelectedCity.Name);
+                var downloadTasks = await TaskService.GetTasksForCityAsync(BLL.Sesion._id, SelectedCity.Name);
                 foreach (var cur in downloadTasks)
                 {
                     list.Add(
@@ -127,6 +128,7 @@ namespace AppTandT.Pages.TaskPages
                         {
                             Title = cur.Title,
                             About = cur.About,
+                            ID = cur._id,
                         });
                 }
                 if (SelectedCity.Name == "Київ")
@@ -143,6 +145,7 @@ namespace AppTandT.Pages.TaskPages
                         Title = "Майдан Незалежності",
                         LogoUrl = "https://st2.depositphotos.com/1536490/11132/v/950/depositphotos_111323836-stock-illustration-maidan-nezalezhnosti-kiev.jpg",
                     };
+                    list.Add(task1);
 
                 }
                 // Тут повинний бути список завдань для вибраного міста
