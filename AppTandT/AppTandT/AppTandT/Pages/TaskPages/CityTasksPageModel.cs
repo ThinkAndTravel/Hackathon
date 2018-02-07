@@ -91,7 +91,7 @@ namespace AppTandT.Pages.TaskPages
             TaskSelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>((arg) =>
             {
                 var pageModel = new TaskExecutionPageModel();
-                pageModel.SetTaskId(SelectedCity.Name);
+                pageModel.SetTaskId(((TaskItem)arg.SelectedItem).ID);
                 var page = this.GetPageFromCache<TaskExecutionPageModel>(pageModel);
                 var masterDetailPage =
                     this.GetPageFromCache<MainMasterDetailPageModel>();
@@ -99,7 +99,6 @@ namespace AppTandT.Pages.TaskPages
                 masterDetailPage.GetPageModel().SetDetail(page);
                 SelectedTask = null;
             });
-
         }
 
         public CityItem SelectedCity { get; set; }
