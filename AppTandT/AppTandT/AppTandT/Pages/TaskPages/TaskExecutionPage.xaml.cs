@@ -38,12 +38,14 @@ namespace AppTandT.Pages.TaskPages
             }
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             var pa = this.GetPageModel();
-            Title.Text = pa.tvm.Title;
+            var task = await BLL.Services.TaskService.GetTaskByIdAsync(pa.taskId);
+            Title.Text = task.Title;
             LogoView.Source = @"https://i.imgur.com/in9OK8m.png";
-            About.Text = pa.tvm.About;
+            About.Text = task.About;
+            var loc = await BLL.Geolocator.GetPositionAsync();
             sendPhoto.IsVisible = false;
         }
 
