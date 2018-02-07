@@ -41,7 +41,9 @@
                                     VerticalOptions="Center"
                                     DownsampleToViewSize="true"
                                     Aspect="AspectFill"
-                                    HeightRequest="300">
+                                    HeightRequest="300"
+                                    LoadingPlaceholder="resource://AppTandT.Icons.loading.gif"
+                                    >
         </ffimageloading:CachedImage>
 
             <Grid Grid.Row="2"  HeightRequest="50">
