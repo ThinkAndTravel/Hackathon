@@ -12,6 +12,8 @@ namespace AppTandT.BLL.Model.CollectionModels
     {
         #region VAR
 
+        public string _id { get; set; }
+
         public MainTask Main { get; set; } = new MainTask();
 
         public string Country { get; set; }

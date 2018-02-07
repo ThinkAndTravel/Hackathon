@@ -12,6 +12,8 @@ namespace AppTandT.BLL.Model.CollectionModels
     {
         #region VAR
 
+        public string _id { get; set; }
+
         public MainTour Main { get; set; } = new MainTour();
 
         public List<Comment> Comments { get; set; } = new List<Comment>();

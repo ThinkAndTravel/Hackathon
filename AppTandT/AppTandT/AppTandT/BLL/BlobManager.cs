@@ -38,17 +38,40 @@ namespace AppTandT.BLL
 
                         );
             photoid = photoid.Substring(1, photoid.Length - 2);
+
             Post post = new Post()
             {
+                _id = Sesion._id+DateTime.Now.ToString(),
                 About = "New post",
                 Main = new Model.CollectionModels.MainCollectionModels.MainPost()
                 {
                     DatePost = DateTime.Now,
                     UserId = Sesion._id,
                     Photos = new List<string>() { photoid },
+                    CurTask = new Model.CollectionModels.Task()
+                    {
+                        _id = "fdsfdsfsd",
+                        IsPersonal = false,
+                        Main =  new Model.CollectionModels.MainCollectionModels.MainTask()
+                        {
+                            TypeTask = 0,
+                            Location = new Model.CollectionModels.HelpCollectionModels.Location() {
+                                GeoLong = 0.5212,
+                                GeoLat = 1.2132,
+                                Country =  "Chechnya",
+                                City =  "Grozny"
+                            },
+                            Questions = new List<Model.CollectionModels.HelpCollectionModels.Question>(),
+                            Tags = new List<string>(),
+                            About = "about"
+                        },
+                        Country = "Chechnya",
+                        City =  "Grozny",
+                        Comments = new List<Model.CollectionModels.HelpCollectionModels.Comment>()
+                    }
                 },
             };
-
+           
             await BLL.Services.PostService.AddPostAsync(post);
             return 0;
         }

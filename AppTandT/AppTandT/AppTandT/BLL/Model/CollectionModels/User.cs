@@ -11,7 +11,7 @@ namespace AppTandT.BLL.Model.CollectionModels
     public class User
     {
         #region VAR
-
+        public string _id { get; set; }
         public MainUser Main { get; set; } = new MainUser();
 
         /// <summary>

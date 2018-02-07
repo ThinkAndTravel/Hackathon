@@ -46,6 +46,7 @@ namespace AppTandT.BLL.Services
         {
             var client = GetClient();
             var url = App.ApiUri + "api/post/addpost";
+            var a = JsonConvert.SerializeObject(post);
             var response = await client.PostAsync(url, new StringContent(
                     JsonConvert.SerializeObject(post),
                     Encoding.UTF8,

@@ -12,6 +12,7 @@ namespace AppTandT.BLL.Model.CollectionModels
     {
         #region VAR
 
+        public string _id { get; set; }
         public MainPost Main { get; set; } = new MainPost();
         /// <summary>
         /// Список людей які є відмічені на фото
