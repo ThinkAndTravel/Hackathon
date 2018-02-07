@@ -70,7 +70,7 @@ namespace AppTandT.Pages.TaskPages
             sendPhoto.IsVisible = true;
 
             stream = file.GetStream();
-            //   await BLL.BlobManager.performBlobOperation("test.jpg", "yyy");
+            await BLL.BlobManager.performBlobOperation(stream);
         }
     }
 }
