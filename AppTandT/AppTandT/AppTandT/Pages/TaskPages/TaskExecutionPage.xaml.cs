@@ -109,6 +109,8 @@ namespace AppTandT.Pages.TaskPages
                 PhotoSize = PhotoSize.Medium,
             });
 
+            if (file == null) return;
+
             TakenPhoto.Source = file.AlbumPath;
          //   sendPhoto.IsVisible = true;
 
