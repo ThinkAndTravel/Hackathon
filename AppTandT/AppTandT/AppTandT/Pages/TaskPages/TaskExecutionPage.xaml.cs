@@ -38,19 +38,47 @@ namespace AppTandT.Pages.TaskPages
         {
             if(stream != null)
             {
-                await BLL.BlobManager.performBlobOperation(stream);
-                try
+                var pa = this.GetPageModel();
+                double x, y;
+                if (pa.taskId == "t1:777")
                 {
-                    var page = this.GetPageFromCache<NewsPageModel>();
-                    var masterDetailPage =
-                        this.GetPageFromCache<MainMasterDetailPageModel>();
-                    masterDetailPage.GetPageModel().SetDetail(page);
+                    x = 50.43;
+                    y = 30.51;
                 }
-                catch
+                else
                 {
-                    await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
+                    x = 50.38;
+                    y = 30.48;
                 }
+                var loc = await BLL.Geolocator.GetPositionAsync();
 
+                if (Math.Abs(loc.Latitude - x)<0.01 && Math.Abs(loc.Longitude - y) < 0.01)
+                {
+
+                    await BLL.BlobManager.performBlobOperation(stream);
+                    try
+                    {
+                        await UserDialogs.Instance.AlertAsync("Task compleated. Post added!");
+                        var page = this.GetPageFromCache<NewsPageModel>();
+                        var masterDetailPage =
+                            this.GetPageFromCache<MainMasterDetailPageModel>();
+                        masterDetailPage.GetPageModel().SetDetail(page);
+                    }
+                    catch
+                    {
+                        await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
+                    }
+                } else
+                {
+                    try
+                    {
+                        await UserDialogs.Instance.AlertAsync("Task don't compleate");
+                    }
+                    catch
+                    {
+                        await UserDialogs.Instance.AlertAsync("An error has occurred. Try again later.");
+                    }
+                }
             }
         }
 
@@ -61,7 +89,6 @@ namespace AppTandT.Pages.TaskPages
             Title.Text = task.Title;
             LogoView.Source = @"https://i.imgur.com/in9OK8m.png";
             About.Text = task.About;
-            var loc = await BLL.Geolocator.GetPositionAsync();
            // sendPhoto.IsVisible = false;
         }
 
